@@ -62,6 +62,6 @@ jobs:
         with:
           # 这里环境变量写配置在仓库secret的GitHub Personal access token的名字
           token: ${{ secrets.GHP_TOKEN }}
-          name: ${{ github.ref }}
+          name: ${{ github.ref_name }}
           files: ./release.tgz
           draft: false
