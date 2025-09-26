@@ -10,7 +10,8 @@
     "dev:subapp2": "pnpm -F sub-app2 run dev",
     "preinstall": "npx only-allow pnpm",
     "plugin:oxc": "code --install-extension oxc.oxc-vscode",
-    "prepare": "husky && echo npx lint-staged > .husky/pre-commit"
+    "prepare": "husky && echo npx lint-staged > .husky/pre-commit",
+    "publish:sdk": "pnpm -F sdk run publish"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "oxlint --fix",
