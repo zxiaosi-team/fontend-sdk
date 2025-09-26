@@ -1,6 +1,6 @@
 {
   "name": "@zxiaosi/sdk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A micro frontend kit",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "npx rimraf dist && rolldown -c rolldown.config.ts",
-    "publish": "npm publish --access public --no-git-checks"
+    "publish": "npm publish"
   },
   "dependencies": {
     "@ant-design/pro-layout": "^7.22.7",
