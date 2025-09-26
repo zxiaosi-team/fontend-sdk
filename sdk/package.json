@@ -1,7 +1,11 @@
 {
   "name": "@zxiaosi/sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A micro frontend kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxiaosi-team/fontend-sdk.git"
+  },
   "license": "MIT",
   "author": "zxiaosi",
   "type": "module",
@@ -45,6 +49,7 @@
     "zustand": "^5.0.8"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
