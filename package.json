@@ -8,9 +8,25 @@
     "dev:main": "pnpm -F main run dev",
     "dev:subapp1": "pnpm -F sub-app1 run dev",
     "dev:subapp2": "pnpm -F sub-app2 run dev",
-    "postinstall": "npx only-allow pnpm",
-    "plugin:oxc": "code --install-extension oxc.oxc-vscode"
+    "preinstall": "npx only-allow pnpm",
+    "plugin:oxc": "code --install-extension oxc.oxc-vscode",
+    "prepare": "husky && echo npx lint-staged > .husky/pre-commit"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "oxlint --fix",
+    "**/*.{js,jsx,ts,tsx,less}": "prettier --write"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.1",
+    "oxlint": "^1.18.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^2.5.19"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  }
 }
