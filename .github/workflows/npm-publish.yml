@@ -54,7 +54,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       # Step7：将lib目录压缩成一个文件，用于release附件
-      - run: tar -zcvf release.tgz ./lib/
+      - run: tar -zcvf release.tgz ./sdk/dist/
 
       # Step8: 发布release
       - name: Release
