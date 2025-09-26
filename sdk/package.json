@@ -4,7 +4,8 @@
   "description": "A micro frontend kit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zxiaosi-team/fontend-sdk.git"
+    "url": "git+https://github.com/zxiaosi-team/fontend-sdk.git",
+    "directory": "sdk"
   },
   "license": "MIT",
   "author": "zxiaosi",
