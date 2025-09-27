@@ -29,6 +29,9 @@ importers:
 
   packages/main:
     dependencies:
+      '@zxiaosi/sdk':
+        specifier: workspace:*
+        version: link:../../sdk
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -57,6 +60,9 @@ importers:
 
   packages/subapp1:
     dependencies:
+      '@zxiaosi/sdk':
+        specifier: workspace:*
+        version: link:../../sdk
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -80,11 +86,14 @@ importers:
         specifier: ~5.6.2
         version: 5.6.3
       vite:
-        specifier: ^5.4.10
+        specifier: 5.4.11
         version: 5.4.11
 
   packages/subapp2:
     dependencies:
+      '@zxiaosi/sdk':
+        specifier: workspace:*
+        version: link:../../sdk
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -108,7 +117,7 @@ importers:
         specifier: ~5.6.2
         version: 5.6.3
       vite:
-        specifier: ^5.4.10
+        specifier: 5.4.11
         version: 5.4.11
 
   sdk:

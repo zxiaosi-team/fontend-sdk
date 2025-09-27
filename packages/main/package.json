@@ -6,10 +6,11 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "lint": "eslint .",
+    "lint": "oxlint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@zxiaosi/sdk": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

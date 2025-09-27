@@ -7,8 +7,8 @@
 ```sh
 ├── packages                      # 是测试 `sdk` 功能的项目
 |   └── main                      # 主应用
-|   └── sub-app1                  # 子应用1
-|   └── sub-app2                  # 子应用2
+|   └── subapp1                   # 子应用1
+|   └── subapp2                   # 子应用2
 ├── sdk                           # sdk项目
 ```
 
