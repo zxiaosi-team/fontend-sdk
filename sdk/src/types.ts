@@ -1,12 +1,20 @@
+import { ConfigOptions, ConfigResult } from '@/plugins/config';
+
 export type ThemeProps = 'light' | 'dark';
 
 export type LocaleProps = 'zh-CN' | 'en-US';
 
 export type PluginName = keyof PluginOptions;
 
-export interface PluginOptions {}
+export interface PluginOptions {
+  /** 配置项插件 */
+  config?: ConfigOptions;
+}
 
-export interface PluginResult {}
+export interface PluginResults {
+  /** 配置项插件 */
+  config: ConfigResult;
+}
 
 export interface Plugin<K extends PluginName> {
   /** 插件名字 */
@@ -32,4 +40,4 @@ export interface SdkBase {
 
 export type SdkProps = SdkBase & PluginOptions;
 
-export type SdkResult = SdkBase & PluginResult;
+export type SdkResult = SdkBase & PluginResults;
