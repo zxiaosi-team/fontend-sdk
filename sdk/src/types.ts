@@ -1,19 +1,24 @@
 import { ConfigOptions, ConfigResult } from '@/plugins/config';
+import { StorageOptions, StorageResult } from '@/plugins/storage';
 
-export type ThemeProps = 'light' | 'dark';
+export type ThemeProps = 'light' | 'dark' | Omit<string, 'light' | 'dark'>;
 
-export type LocaleProps = 'zh-CN' | 'en-US';
+export type LocaleProps = 'zh-CN' | 'en-US' | Omit<string, 'zh-CN' | 'en-US'>;
 
 export type PluginName = keyof PluginOptions;
 
 export interface PluginOptions {
   /** 配置项插件 */
   config?: ConfigOptions;
+  /** 本地缓存插件 */
+  storage?: StorageOptions;
 }
 
 export interface PluginResults {
   /** 配置项插件 */
   config: ConfigResult;
+  /** 本地缓存插件 */
+  storage: StorageResult;
 }
 
 export interface Plugin<K extends PluginName> {

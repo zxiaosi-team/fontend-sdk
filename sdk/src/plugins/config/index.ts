@@ -20,13 +20,6 @@ interface ConfigOptions {
   /** 国际化 */
   locale?: LocaleProps;
 
-  /** 国际化存储名称 */
-  localeStorageKey?: string;
-  /** 主题存储名称  */
-  themeStorageKey?: string;
-  /** Token存储名称 */
-  tokenStorageKey?: string;
-
   /** 登录页路由 */
   loginPath?: string;
   /**
@@ -55,7 +48,7 @@ interface ConfigResult extends Required<ConfigOptions> {}
 const pluginName = 'config';
 
 /**
- * 配置信息
+ * 配置项插件
  * - 详情参考 {@link ConfigOptions} {@link ConfigResult}
  * - 配置 localStorage 变量名称
  * - 配置 默认主题、国际化
@@ -73,10 +66,6 @@ const SdkConfigPlugin: Plugin<'config'> = {
 
       theme: null,
       locale: null,
-
-      localeStorageKey: 'locale',
-      themeStorageKey: 'theme',
-      tokenStorageKey: 'token',
 
       loginPath: '/login',
       defaultPath: '',
