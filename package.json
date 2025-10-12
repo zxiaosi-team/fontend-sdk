@@ -6,6 +6,7 @@
     "build:sdk": "pnpm -F sdk run build",
     "clean": "pnpm -r exec rimraf node_modules && npx rimraf node_modules pnpm-lock.yaml",
     "dev:main": "pnpm -F main run dev",
+    "dev:sdk": "pnpm -F sdk run dev",
     "dev:subapp1": "pnpm -F subapp1 run dev",
     "dev:subapp2": "pnpm -F subapp2 run dev",
     "preinstall": "npx only-allow pnpm",
@@ -21,7 +22,7 @@
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^16.2.1",
-    "oxlint": "^1.19.0",
+    "oxlint": "^1.22.0",
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-packagejson": "^2.5.19"

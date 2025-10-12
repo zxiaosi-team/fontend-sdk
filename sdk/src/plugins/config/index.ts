@@ -8,17 +8,17 @@ interface ConfigOptions {
   /** 环境变量 */
   env?: Record<string, any>;
 
+  /** 主题 */
+  theme?: ThemeProps;
+  /** 国际化 */
+  locale?: LocaleProps;
+
   /**
    * qiankun模式(切换模式后请打开新的窗口)
    * - 'router': 基于路由模式
    * - 'load': 手动加载模式
    */
   qiankunMode?: 'router' | 'load';
-
-  /** 主题 */
-  theme?: ThemeProps;
-  /** 国际化 */
-  locale?: LocaleProps;
 
   /** 登录页路由 */
   loginPath?: string;
