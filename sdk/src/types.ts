@@ -1,3 +1,4 @@
+import { ApiOptions, ApiResult } from '@/plugins/api';
 import { ConfigOptions, ConfigResult } from '@/plugins/config';
 import { StorageOptions, StorageResult } from '@/plugins/storage';
 
@@ -8,6 +9,8 @@ export type LocaleProps = 'zh-CN' | 'en-US' | Omit<string, 'zh-CN' | 'en-US'>;
 export type PluginName = keyof PluginOptions;
 
 export interface PluginOptions {
+  /** 请求插件 */
+  api?: ApiOptions;
   /** 配置项插件 */
   config?: ConfigOptions;
   /** 本地缓存插件 */
@@ -15,6 +18,8 @@ export interface PluginOptions {
 }
 
 export interface PluginResults {
+  /** 请求插件 */
+  api: ApiResult;
   /** 配置项插件 */
   config: ConfigResult;
   /** 本地缓存插件 */
