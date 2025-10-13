@@ -2,6 +2,7 @@ import { ApiOptions, ApiResult } from '@/plugins/api';
 import { AppOptions, AppResult } from '@/plugins/app';
 import { ClientOptions, ClientResult } from '@/plugins/client';
 import { ConfigOptions, ConfigResult } from '@/plugins/config';
+import { I18nOptions, I18nResult } from '@/plugins/i18n';
 import { StorageOptions, StorageResult } from '@/plugins/storage';
 
 export type ThemeProps = 'light' | 'dark' | Omit<string, 'light' | 'dark'>;
@@ -30,6 +31,8 @@ export interface PluginOptions {
   client?: ClientOptions;
   /** 配置项插件 */
   config?: ConfigOptions;
+  /** 国际化插件 */
+  i18n?: I18nOptions;
   /** 本地缓存插件 */
   storage?: StorageOptions;
 }
@@ -43,6 +46,8 @@ export interface PluginResults {
   client: ClientResult;
   /** 配置项插件 */
   config: ConfigResult;
+  /** 国际化插件 */
+  i18n: I18nResult;
   /** 本地缓存插件 */
   storage: StorageResult;
 }
