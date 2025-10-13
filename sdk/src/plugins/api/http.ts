@@ -72,7 +72,7 @@ class Http {
           if (isShowFailMsg) message.error(msg);
           console.error('response error: ', config.url, msg);
 
-          if (code == 200401) window.location.href = '/login'; // 登录过期，跳转登录页
+          if (code == 20041) sdk.app.pageToLogin(); // 登录过期，跳转登录页
         }
 
         sdk.api.controllers.delete(config['requestId']);
@@ -92,7 +92,7 @@ class Http {
 
           if (isShowFailMsg) message.error(data.msg || statusText);
 
-          if (status == 401) window.location.href = '/login'; // 登录过期，跳转登录页
+          if (status == 401) sdk.app.pageToLogin(); // 登录过期，跳转登录页
         } else {
           // 请求已经成功发起，但没有收到响应
           if (isShowFailMsg) message.error('请求超时或服务器异常，请检查网络或联系管理员');

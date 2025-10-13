@@ -1,4 +1,5 @@
 import { ApiOptions, ApiResult } from '@/plugins/api';
+import { AppOptions, AppResult } from '@/plugins/app';
 import { ConfigOptions, ConfigResult } from '@/plugins/config';
 import { StorageOptions, StorageResult } from '@/plugins/storage';
 
@@ -6,11 +7,24 @@ export type ThemeProps = 'light' | 'dark' | Omit<string, 'light' | 'dark'>;
 
 export type LocaleProps = 'zh-CN' | 'en-US' | Omit<string, 'zh-CN' | 'en-US'>;
 
+export interface UserInfo {
+  /** 用户信息 */
+  user?: any;
+  /** 用户权限 */
+  permissions?: string[];
+  /** 用户角色 */
+  roles?: string[];
+  /** 用户设置 */
+  settings?: { theme?: ThemeProps; locale?: LocaleProps };
+}
+
 export type PluginName = keyof PluginOptions;
 
 export interface PluginOptions {
   /** 请求插件 */
   api?: ApiOptions;
+  /** 项目插件 */
+  app?: AppOptions;
   /** 配置项插件 */
   config?: ConfigOptions;
   /** 本地缓存插件 */
@@ -20,6 +34,8 @@ export interface PluginOptions {
 export interface PluginResults {
   /** 请求插件 */
   api: ApiResult;
+  /** 项目插件 */
+  app: AppResult;
   /** 配置项插件 */
   config: ConfigResult;
   /** 本地缓存插件 */

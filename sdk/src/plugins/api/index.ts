@@ -1,4 +1,4 @@
-import { Plugin } from '@/types';
+import { Plugin, UserInfo } from '@/types';
 import { cancelRequestUtil } from '@/utils';
 import { message } from 'antd';
 import { AxiosError, AxiosInstance, AxiosResponse, CreateAxiosDefaults } from 'axios';
@@ -23,9 +23,10 @@ interface ApiOptions {
 
   /**
    * 获取用户信息
+   * {@link UserInfo}
    * @example { data: { user: { ... }, permissions: [], roles: [], settings: {} }, code: 200 }
    */
-  getUserInfoApi?: () => Promise<AxiosResponse<any>>;
+  getUserInfoApi?: () => Promise<AxiosResponse<UserInfo>>;
   /**
    * 获取路由数据
    * @example { data: [{path: '/', name: '首页', element: 'Home'}], code: 200 }
