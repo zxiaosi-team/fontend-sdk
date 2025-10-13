@@ -4,10 +4,11 @@ import { ClientOptions, ClientResult } from '@/plugins/client';
 import { ConfigOptions, ConfigResult } from '@/plugins/config';
 import { I18nOptions, I18nResult } from '@/plugins/i18n';
 import { StorageOptions, StorageResult } from '@/plugins/storage';
+import { StoreOptions, StoreResult } from '@/plugins/store';
 
-export type ThemeProps = 'light' | 'dark' | Omit<string, 'light' | 'dark'>;
+export type ThemeProps = 'light' | 'dark' | (string & {});
 
-export type LocaleProps = 'zh-CN' | 'en-US' | Omit<string, 'zh-CN' | 'en-US'>;
+export type LocaleProps = 'zh-CN' | 'en-US' | (string & {});
 
 export interface UserInfo {
   /** 用户信息 */
@@ -35,6 +36,8 @@ export interface PluginOptions {
   i18n?: I18nOptions;
   /** 本地缓存插件 */
   storage?: StorageOptions;
+  /** 状态管理插件 */
+  store?: StoreOptions;
 }
 
 export interface PluginResults {
@@ -50,6 +53,8 @@ export interface PluginResults {
   i18n: I18nResult;
   /** 本地缓存插件 */
   storage: StorageResult;
+  /** 状态管理插件 */
+  store: StoreResult;
 }
 
 export interface Plugin<K extends PluginName> {

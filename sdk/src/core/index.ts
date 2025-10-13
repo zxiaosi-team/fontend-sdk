@@ -10,6 +10,7 @@ class Sdk implements SdkResult {
   config: SdkResult['config'];
   i18n: SdkResult['i18n'];
   storage: SdkResult['storage'];
+  store: SdkResult['store'];
 
   constructor() {
     this.name = '';

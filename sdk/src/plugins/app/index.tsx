@@ -40,7 +40,7 @@ interface AppResult extends Required<AppOptions> {
 const pluginName = 'app';
 
 /**
- * 应用数据和业务逻辑
+ * 项目插件
  * - 详情参考 {@link AppOptions} {@link AppResult}
  * - 主要存储接口数据
  */

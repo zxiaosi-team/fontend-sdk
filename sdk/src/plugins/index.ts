@@ -4,3 +4,4 @@ export * from './client';
 export * from './config';
 export * from './i18n';
 export * from './storage';
+export * from './store';

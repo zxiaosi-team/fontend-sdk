@@ -69,7 +69,7 @@ interface ApiResult extends Required<ApiOptions> {
 const pluginName = 'api';
 
 /**
- * 请求 插件
+ * 请求插件
  * - 详情参考 {@link ApiOptions} {@link ApiResult}
  * - 内置了请求, 通过 sdk.api.request 发起请求
  * - 可通过外部传入 instance 自定义请求实例
