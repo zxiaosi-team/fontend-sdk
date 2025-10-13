@@ -2,6 +2,26 @@ import { sdk } from '@/core';
 import { ApiRequestOption } from '@/plugins/api/http';
 import { LocaleProps, SdkResult, ThemeProps } from '@/types';
 import { AxiosResponse } from 'axios';
+import { FrameworkLifeCycles, ObjectType } from 'qiankun';
+
+/** qiankun 生命周期 钩子函数 */
+export const lifeCyclesUtil: FrameworkLifeCycles<ObjectType> = {
+  beforeLoad: [
+    async (app) => {
+      console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
+    },
+  ],
+  beforeMount: [
+    async (app) => {
+      console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
+    },
+  ],
+  afterUnmount: [
+    async (app) => {
+      console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
+    },
+  ],
+};
 
 /**
  * 获取主题默认值
@@ -11,7 +31,7 @@ export const getDefaultThemeUtil = (sdk: SdkResult): ThemeProps => {
   // localStorage > sdk中主题 > 系统主题 > 默认
 
   // 1. localStorage
-  const localTheme = localStorage.getItem('theme') as ThemeProps;
+  const localTheme = sdk.storage.getTheme() as ThemeProps;
   if (localTheme) return localTheme;
 
   // 2. sdk中主题
@@ -34,7 +54,7 @@ export const getDefaultLocaleUtil = (sdk: SdkResult): LocaleProps => {
   // localStorage > sdk中国际化 > 浏览器语言 > 默认
 
   // 1. localStorage
-  const localLocale = localStorage.getItem('locale') as LocaleProps;
+  const localLocale = sdk.storage.getLocale() as LocaleProps;
   if (localLocale) return localLocale;
 
   // 2. sdk中国际化

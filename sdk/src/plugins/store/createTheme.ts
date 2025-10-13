@@ -21,7 +21,7 @@ const createThemeSlice: StateCreator<ThemeStoreProps> = (set, get) => ({
 
     // 记录值
     sdk.config.theme = theme;
-    sdk.storage.changeTheme(theme);
+    sdk.storage.setTheme(theme);
 
     // 设置作用域
     document.documentElement.setAttribute('data-theme', theme);

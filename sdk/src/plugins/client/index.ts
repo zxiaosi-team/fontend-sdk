@@ -6,11 +6,11 @@ interface ClientOptions {}
 
 interface ClientResult extends Required<ClientOptions> {
   /** 主应用 location */
-  readonly location: Location;
+  location: Location;
   /** 主应用navigate（解决子应用跳转问题） */
-  readonly navigate: NavigateFunction;
+  navigate: NavigateFunction;
   /** 路由匹配（用于面包屑） */
-  readonly matches: UIMatch[];
+  matches: UIMatch[];
 }
 
 /** 插件名称 */

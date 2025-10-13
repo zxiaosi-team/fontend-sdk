@@ -19,7 +19,7 @@ const createLocaleSlice: StateCreator<LocaleStoreProps> = (set, get) => ({
 
     // 记录值
     sdk.config.locale = locale;
-    sdk.storage.changeLocale(locale);
+    sdk.storage.setLocale(locale);
 
     // 设置作用域
     document.documentElement.setAttribute('lang', locale);

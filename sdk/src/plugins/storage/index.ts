@@ -13,22 +13,22 @@ interface StorageOptions {
 interface StorageResult extends Required<StorageOptions> {
   /** 获取当前国际化 */
   readonly getLocale: () => LocaleProps;
-  /** 切换国际化 */
-  readonly changeLocale: (locale: LocaleProps) => void;
+  /** 设置/切换切换国际化 */
+  readonly setLocale: (locale: LocaleProps) => void;
   /** 清除国际化 */
   readonly clearLocale: () => void;
 
   /** 获取当前主题 */
   readonly getTheme: () => ThemeProps;
-  /** 切换主题 */
-  readonly changeTheme: (theme: ThemeProps) => void;
+  /** 设置/切换主题 */
+  readonly setTheme: (theme: ThemeProps) => void;
   /** 清除主题 */
   readonly clearTheme: () => void;
 
   /** 获取当前 Token */
   readonly getToken: () => string | null;
-  /** 切换 Token */
-  readonly changeToken: (token: string) => void;
+  /** 设置 Token */
+  readonly setToken: (token: string) => void;
   /** 清除 Token */
   readonly clearToken: () => void;
 }
@@ -57,7 +57,7 @@ const SdkStoragePlugin: Plugin<'storage'> = {
       getLocale() {
         return localStorage.getItem(sdk.storage.localeKey) || 'zh-CN';
       },
-      changeLocale(locale: string) {
+      setLocale(locale: string) {
         localStorage.setItem(sdk.storage.localeKey, locale);
       },
       clearLocale() {
@@ -66,7 +66,7 @@ const SdkStoragePlugin: Plugin<'storage'> = {
       getTheme() {
         return localStorage.getItem(sdk.storage.themeKey) || 'light';
       },
-      changeTheme(theme: string) {
+      setTheme(theme: string) {
         localStorage.setItem(sdk.storage.themeKey, theme);
       },
       clearTheme() {
@@ -75,7 +75,7 @@ const SdkStoragePlugin: Plugin<'storage'> = {
       getToken() {
         return localStorage.getItem(sdk.storage.tokenKey) || null;
       },
-      changeToken(token: string) {
+      setToken(token: string) {
         localStorage.setItem(sdk.storage.tokenKey, token);
       },
       clearToken() {

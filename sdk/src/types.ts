@@ -5,6 +5,7 @@ import { ConfigOptions, ConfigResult } from '@/plugins/config';
 import { I18nOptions, I18nResult } from '@/plugins/i18n';
 import { StorageOptions, StorageResult } from '@/plugins/storage';
 import { StoreOptions, StoreResult } from '@/plugins/store';
+import { UIOptions, UIResult } from '@/plugins/ui';
 
 export type ThemeProps = 'light' | 'dark' | (string & {});
 
@@ -38,6 +39,8 @@ export interface PluginOptions {
   storage?: StorageOptions;
   /** 状态管理插件 */
   store?: StoreOptions;
+  /** 组件插件 */
+  ui?: UIOptions;
 }
 
 export interface PluginResults {
@@ -55,6 +58,8 @@ export interface PluginResults {
   storage: StorageResult;
   /** 状态管理插件 */
   store: StoreResult;
+  /** 组件插件 */
+  ui: UIResult;
 }
 
 export interface Plugin<K extends PluginName> {
