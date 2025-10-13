@@ -1,5 +1,6 @@
 import { ApiOptions, ApiResult } from '@/plugins/api';
 import { AppOptions, AppResult } from '@/plugins/app';
+import { ClientOptions, ClientResult } from '@/plugins/client';
 import { ConfigOptions, ConfigResult } from '@/plugins/config';
 import { StorageOptions, StorageResult } from '@/plugins/storage';
 
@@ -25,6 +26,8 @@ export interface PluginOptions {
   api?: ApiOptions;
   /** 项目插件 */
   app?: AppOptions;
+  /** 路由插件 */
+  client?: ClientOptions;
   /** 配置项插件 */
   config?: ConfigOptions;
   /** 本地缓存插件 */
@@ -36,6 +39,8 @@ export interface PluginResults {
   api: ApiResult;
   /** 项目插件 */
   app: AppResult;
+  /** 路由插件 */
+  client: ClientResult;
   /** 配置项插件 */
   config: ConfigResult;
   /** 本地缓存插件 */

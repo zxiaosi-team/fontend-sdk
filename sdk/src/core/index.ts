@@ -6,6 +6,7 @@ class Sdk implements SdkResult {
 
   api: SdkResult['api'];
   app: SdkResult['app'];
+  client: SdkResult['client'];
   config: SdkResult['config'];
   storage: SdkResult['storage'];
 
