@@ -3,10 +3,22 @@
   "private": true,
   "scripts": {
     "clean": "pnpm -r exec rimraf node_modules && npx rimraf node_modules",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky && echo npx lint-staged > .husky/pre-commit"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "oxlint --fix",
+    "**/*.{js,jsx,ts,tsx,less}": "prettier --write"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "oxlint": "^1.30.0",
+    "prettier": "^3.7.3",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^2.5.20"
+  },
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
