@@ -2,7 +2,13 @@
   "name": "frontend-sdk",
   "private": true,
   "scripts": {
+    "build:all": "pnpm -r run build",
+    "build:sdk": "pnpm -F sdk run build",
     "clean": "pnpm -r exec rimraf node_modules && npx rimraf node_modules",
+    "dev:main": "pnpm -F main run dev",
+    "dev:sdk": "pnpm -F sdk run dev",
+    "dev:subapp1": "pnpm -F subapp1 run dev",
+    "dev:subapp2": "pnpm -F subapp2 run dev",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky && echo npx lint-staged > .husky/pre-commit"
   },
