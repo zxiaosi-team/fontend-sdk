@@ -1,14 +1,9 @@
-import { hello } from '@zxiaosi/sdk';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import viteLogo from '/vite.svg';
 
 function App() {
   const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log(hello);
-  }, []);
 
   return (
     <>
