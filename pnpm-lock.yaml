@@ -27,6 +27,12 @@ importers:
         specifier: ^2.5.20
         version: 2.5.20(prettier@3.7.3)
 
+  sdk:
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
 packages:
 
   '@oxlint/darwin-arm64@1.30.0':
