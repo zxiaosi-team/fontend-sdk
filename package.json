@@ -1,0 +1,14 @@
+{
+  "name": "frontend-sdk",
+  "private": true,
+  "scripts": {
+    "clean": "pnpm -r exec rimraf node_modules && npx rimraf node_modules",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  }
+}
