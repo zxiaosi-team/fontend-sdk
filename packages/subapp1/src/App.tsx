@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-const routes: RouteObject[] = [{ path: '/', element: <h2>subapp2</h2> }];
+const routes: RouteObject[] = [{ path: '/', element: <h2>subapp1</h2> }];
 
 function App() {
   return (
