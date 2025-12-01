@@ -1,31 +1,50 @@
-import { useState } from 'react';
+import Home from '@/pages/Home';
+import BaseLayout from '@/pages/Layout';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from 'react-router-dom';
 import './App.css';
-import viteLogo from '/vite.svg';
+
+/** 路由配置 */
+const routes = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Navigate to="/home" replace />, // 重定向
+    },
+    {
+      path: '/',
+      element: <BaseLayout />, // 布局
+      children: [
+        {
+          path: '/home',
+          element: <Home />, // 首页
+        },
+        {
+          path: '/subapp1/*', // 通配符 * 表示匹配所有子路由
+          element: <div id="subapp1"></div>, // 子应用挂载点 对应 main.tsx 注册子应用的 container
+        },
+        {
+          path: '/subapp2/*', // 通配符 * 表示匹配所有子路由
+          element: <div id="subapp2"></div>, // 子应用挂载点 对应 main.tsx 注册子应用的 container
+        },
+      ],
+    },
+    {
+      path: '*',
+      element: <div>404</div>,
+    },
+  ],
+  {
+    basename: '/',
+  },
+);
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank"></a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <RouterProvider router={routes} future={{ v7_startTransition: false }} />
   );
 }
 
