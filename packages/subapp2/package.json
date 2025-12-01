@@ -15,7 +15,8 @@
   "dependencies": {
     "@zxiaosi/sdk": "workspace:*",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.2"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
