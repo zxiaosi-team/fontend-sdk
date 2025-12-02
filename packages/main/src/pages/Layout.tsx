@@ -1,29 +1,40 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+import ProLayout from '@ant-design/pro-layout';
+import { sdk } from '@zxiaosi/sdk';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 /** 布局组件 */
 const Layout = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handlePageTo = (uri: string) => {
-    navigate(uri);
+  /** 菜单点击事件 */
+  const handleMenuClick = (item: any) => {
+    navigate(item.path);
+  };
+
+  /** 菜单头点击事件 */
+  const handleMenuHeaderClick = () => {
+    navigate('/');
   };
 
   return (
-    <div className="layout">
-      <h1>布局组件</h1>
-
-      <div style={{ display: 'flex', gap: 20 }}>
-        <button onClick={() => handlePageTo('/home')}>主应用 - Home</button>
-        <button onClick={() => handlePageTo('/subapp1')}>
-          子应用 - subapp1
-        </button>
-        <button onClick={() => handlePageTo('/subapp2')}>
-          子应用 - subapp2
-        </button>
-      </div>
-
+    <ProLayout
+      {...sdk.config.proLayoutConfig}
+      location={location}
+      menuItemRender={(item, dom) => (
+        <div onClick={() => handleMenuClick(item)}>{dom}</div>
+      )}
+      onMenuHeaderClick={handleMenuHeaderClick}
+      menu={{
+        request: async () => [
+          { name: 'Home', path: '/home' },
+          { name: 'Subapp1', path: '/subapp1' },
+          { name: 'Subapp2', path: '/subapp2' },
+        ],
+      }}
+    >
       <Outlet />
-    </div>
+    </ProLayout>
   );
 };
 

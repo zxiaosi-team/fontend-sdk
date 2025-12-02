@@ -5,7 +5,6 @@ import {
   Navigate,
   RouterProvider,
 } from 'react-router-dom';
-import './App.css';
 
 /** 路由配置 */
 const routes = createBrowserRouter(

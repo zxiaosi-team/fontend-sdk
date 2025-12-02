@@ -43,7 +43,12 @@ start();
 
 /** 挂载 SDK */
 sdk
-  .use(SdkConfigPlugin, { proLayoutConfig: { title: '小四先生的栈' } })
+  .use(SdkConfigPlugin, {
+    proLayoutConfig: {
+      title: '小四先生的栈',
+      layout: 'mix',
+    },
+  })
   .mount('sdk');
 
 /** 渲染主应用 */
