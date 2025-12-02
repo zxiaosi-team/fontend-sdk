@@ -1,4 +1,4 @@
-import { sdk } from '@zxiaosi/sdk';
+import { sdk, SdkConfigPlugin } from '@zxiaosi/sdk';
 import { registerMicroApps, start, type RegistrableApp } from 'qiankun';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
@@ -42,7 +42,9 @@ registerMicroApps(microApps, {
 start();
 
 /** 挂载 SDK */
-sdk.mount('sdk');
+sdk
+  .use(SdkConfigPlugin, { proLayoutConfig: { title: '小四先生的栈' } })
+  .mount('sdk');
 
 /** 渲染主应用 */
 createRoot(document.getElementById('root')!).render(<App />);
