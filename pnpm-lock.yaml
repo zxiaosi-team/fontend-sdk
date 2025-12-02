@@ -29,6 +29,9 @@ importers:
 
   packages/main:
     dependencies:
+      '@ant-design/pro-layout':
+        specifier: ^7.22.7
+        version: 7.22.7(antd@5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@zxiaosi/sdk':
         specifier: workspace:*
         version: link:../../sdk
