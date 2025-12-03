@@ -1,4 +1,4 @@
-import { sdk, SdkConfigPlugin } from '@zxiaosi/sdk';
+import { sdk, SdkConfigPlugin, SdkStoragePlugin } from '@zxiaosi/sdk';
 import { registerMicroApps, start, type RegistrableApp } from 'qiankun';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
@@ -49,6 +49,7 @@ sdk
       layout: 'mix',
     },
   })
+  .use(SdkStoragePlugin)
   .mount('sdk');
 
 /** 渲染主应用 */
