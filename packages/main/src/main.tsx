@@ -8,13 +8,13 @@ const microApps: Array<RegistrableApp<any>> = [
   {
     name: 'subapp1', // 子应用名称(全局唯一)
     entry: 'http://localhost:5174', // 这里的端口号要和子应用的端口号一致
-    container: '#subapp1', // 子应用挂载点
+    container: '#sub-app', // 子应用挂载点
     activeRule: '/subapp1', //  这里的路径要和子应用的路由前缀一致
   },
   {
     name: 'subapp2', // 子应用名称(全局唯一)
     entry: 'http://localhost:5175', // 这里的端口号要和子应用的端口号一致
-    container: '#subapp2', // 子应用挂载点
+    container: '#sub-app', // 子应用挂载点
     activeRule: '/subapp2', //  这里的路径要和子应用的路由前缀一致
   },
 ];
@@ -47,6 +47,9 @@ sdk
     proLayoutConfig: {
       title: '小四先生的栈',
       layout: 'mix',
+      contentStyle: {
+        padding: 0,
+      },
     },
   })
   .use(SdkStoragePlugin)
