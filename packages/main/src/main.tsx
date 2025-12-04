@@ -1,5 +1,6 @@
 import {
   sdk,
+  SdkAppPlugin,
   SdkClientPlugin,
   SdkConfigPlugin,
   SdkStoragePlugin,
@@ -48,6 +49,7 @@ start();
 
 /** 挂载 SDK */
 sdk
+  .use(SdkAppPlugin)
   .use(SdkClientPlugin)
   .use(SdkConfigPlugin, {
     proLayoutConfig: {
