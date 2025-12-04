@@ -1,4 +1,9 @@
-import { sdk, SdkConfigPlugin, SdkStoragePlugin } from '@zxiaosi/sdk';
+import {
+  sdk,
+  SdkClientPlugin,
+  SdkConfigPlugin,
+  SdkStoragePlugin,
+} from '@zxiaosi/sdk';
 import { registerMicroApps, start, type RegistrableApp } from 'qiankun';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
@@ -43,6 +48,7 @@ start();
 
 /** 挂载 SDK */
 sdk
+  .use(SdkClientPlugin)
   .use(SdkConfigPlugin, {
     proLayoutConfig: {
       title: '小四先生的栈',
