@@ -1,3 +1,4 @@
+import { WithRouterInfo } from '@/components/withRouterInfo';
 import Home from '@/pages/Home';
 import BaseLayout from '@/pages/Layout';
 import {
@@ -15,7 +16,11 @@ const routes = createBrowserRouter(
     },
     {
       path: '/',
-      element: <BaseLayout />, // 布局
+      element: (
+        <WithRouterInfo>
+          <BaseLayout />
+        </WithRouterInfo>
+      ), // 布局
       children: [
         {
           path: '/home',
