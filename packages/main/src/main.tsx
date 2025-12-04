@@ -47,9 +47,6 @@ sdk
     proLayoutConfig: {
       title: '小四先生的栈',
       layout: 'mix',
-      contentStyle: {
-        padding: 0,
-      },
     },
   })
   .use(SdkStoragePlugin)
