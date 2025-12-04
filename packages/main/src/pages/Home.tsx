@@ -1,5 +1,6 @@
+import { getRoutesApi, getUserInfoApi } from '@/service';
 import { sdk } from '@zxiaosi/sdk';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /** 首页 */
 const Home = () => {
@@ -18,6 +19,11 @@ const Home = () => {
   const handlePageTo = (uri: string) => {
     sdk.client.navigate(uri);
   };
+
+  useEffect(() => {
+    getUserInfoApi();
+    getRoutesApi();
+  }, []);
 
   return (
     <h2>
