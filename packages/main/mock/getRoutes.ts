@@ -31,14 +31,14 @@ const handleRoutesData = () => {
       component: 'Outlet',
       children: [
         {
-          name: '子应用2详情页',
-          path: '/subapp2/detail',
+          name: '子应用2首页',
+          path: '/subapp2/home',
           component: 'Microapp',
           routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app"}`,
         },
         {
-          name: '子应用2全屏页',
-          path: '/subapp2/role',
+          name: '子应用2详情页',
+          path: '/subapp2/detail',
           component: 'Microapp',
           routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app", "noLayout": true}`,
         },

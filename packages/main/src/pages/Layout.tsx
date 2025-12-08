@@ -9,6 +9,7 @@ const Layout = () => {
   const matches = useMatches();
 
   const currentMatch = matches.at(-1)?.handle?.crumb() || {};
+  const noLayout = JSON.parse(currentMatch?.routeAttr || '{}')?.noLayout;
 
   /** 菜单点击事件 */
   const handleMenuClick = (item: any) => {
@@ -28,17 +29,13 @@ const Layout = () => {
         <div onClick={() => handleMenuClick(item)}>{dom}</div>
       )}
       onMenuHeaderClick={handleMenuHeaderClick}
-      {...(currentMatch?.noLayout && {
+      {...(noLayout && {
         headerRender: false,
         footerRender: false,
         menuRender: false,
       })}
       menu={{
-        request: async () => [
-          { name: 'Home', path: '/home' },
-          { name: 'Subapp1', path: '/subapp1' },
-          { name: 'Subapp2', path: '/subapp2' },
-        ],
+        request: async () => sdk.app.menuData || [],
       }}
     >
       <Outlet />

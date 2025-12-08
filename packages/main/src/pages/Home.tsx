@@ -1,6 +1,5 @@
-import { getRoutesApi, getUserInfoApi } from '@/service';
 import { sdk } from '@zxiaosi/sdk';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 /** 首页 */
 const Home = () => {
@@ -20,11 +19,6 @@ const Home = () => {
     sdk.client.navigate(uri);
   };
 
-  useEffect(() => {
-    getUserInfoApi();
-    getRoutesApi();
-  }, []);
-
   return (
     <h2>
       Home
@@ -37,7 +31,9 @@ const Home = () => {
       <br />
       <br />
       <button onClick={() => handlePageTo('/subapp1')}>跳转到 Subapp1</button>
-      <button onClick={() => handlePageTo('/subapp2')}>跳转到 Subapp2</button>
+      <button onClick={() => handlePageTo('/subapp2/home')}>
+        跳转到 Subapp2
+      </button>
     </h2>
   );
 };

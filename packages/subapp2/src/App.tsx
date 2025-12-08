@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -6,22 +6,27 @@ import {
 } from 'react-router-dom';
 
 const Home = lazy(() => import('@/pages/Home'));
+const Detail = lazy(() => import('@/pages/Detail'));
 
 const routes: RouteObject[] = [
   {
-    path: '/',
+    path: '/home',
     element: <Home />,
+  },
+  {
+    path: '/detail',
+    element: <Detail />,
   },
 ];
 
 function App() {
   return (
-    <>
+    <Suspense fallback={<div>loading...</div>}>
       <RouterProvider
         router={createBrowserRouter(routes, { basename: '/subapp2' })}
         future={{ v7_startTransition: false }}
       />
-    </>
+    </Suspense>
   );
 }
 
