@@ -1,10 +1,15 @@
 import { sdk } from '@zxiaosi/sdk';
+import { useEffect } from 'react';
 
 const Home = () => {
   /** 跳转页面 */
   const handlePageTo = (uri: string) => {
     sdk.client.navigate(uri);
   };
+
+  useEffect(() => {
+    sdk.api.getUserInfoApi();
+  }, []);
 
   return (
     <h2>

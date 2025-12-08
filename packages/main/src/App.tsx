@@ -14,7 +14,6 @@ import {
   RouterProvider,
   type RouteObject,
 } from 'react-router-dom';
-import { getRoutesApi, getUserInfoApi } from './service';
 
 function App() {
   const [routes, setRoutes] = useState<RouteObject[]>([
@@ -31,14 +30,14 @@ function App() {
     try {
       setLoading(() => true);
       const [userData, routerData] = await Promise.all([
-        getUserInfoApi(),
-        getRoutesApi(),
+        sdk.api.getUserInfoApi(),
+        sdk.api.getRoutesApi(),
       ]);
       setLoading(() => false);
 
       // 处理路由数据
       const { microApps = [], menuData = [] } = handleRoutesUtil(
-        routerData?.data?.data || [],
+        routerData?.data || [],
         microLoading,
         setMicroLoading,
       );

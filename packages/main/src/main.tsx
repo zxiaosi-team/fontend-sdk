@@ -1,3 +1,4 @@
+import { getRoutesApi, getUserInfoApi } from '@/service/index.ts';
 import {
   sdk,
   SdkApiPlugin,
@@ -12,7 +13,11 @@ import './index.css';
 
 /** 挂载 SDK */
 sdk
-  .use(SdkApiPlugin)
+  .use(SdkApiPlugin, {
+    config: { baseURL: '/api' },
+    getRoutesApi: getRoutesApi,
+    getUserInfoApi: getUserInfoApi,
+  })
   .use(SdkAppPlugin)
   .use(SdkClientPlugin)
   .use(SdkConfigPlugin, {

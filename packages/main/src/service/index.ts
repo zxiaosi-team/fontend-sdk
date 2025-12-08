@@ -1,11 +1,11 @@
-import axios from 'axios';
+import { sdk } from '@zxiaosi/sdk';
 
 /** 获取用户信息 */
 export const getUserInfoApi = async () => {
-  return axios.get('/api/getUserInfo');
+  return sdk.api.request('/getUserInfo', { method: 'GET' });
 };
 
 /** 获取路由 */
 export const getRoutesApi = async () => {
-  return axios.get('/api/getRoutes');
+  return sdk.api.request('/getRoutes', { method: 'GET' });
 };
