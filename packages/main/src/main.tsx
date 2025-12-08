@@ -1,5 +1,6 @@
 import {
   sdk,
+  SdkApiPlugin,
   SdkAppPlugin,
   SdkClientPlugin,
   SdkConfigPlugin,
@@ -11,6 +12,7 @@ import './index.css';
 
 /** 挂载 SDK */
 sdk
+  .use(SdkApiPlugin)
   .use(SdkAppPlugin)
   .use(SdkClientPlugin)
   .use(SdkConfigPlugin, {
