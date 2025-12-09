@@ -1,4 +1,5 @@
 import Microapp from '@/components/Microapp';
+import { sdk } from '@zxiaosi/sdk';
 import type { FrameworkLifeCycles, ObjectType, RegistrableApp } from 'qiankun';
 import { lazy, Suspense } from 'react';
 import { Outlet, type RouteObject } from 'react-router-dom';
@@ -44,20 +45,10 @@ const lazyLoad = (moduleName: string) => {
 /**
  * 处理路由数据
  * @param routes 路由数据
- * @param setMicroLoading 设置微前端加载状态函数
  */
-export const handleRoutesUtil = (
-  routes: any[],
-  microLoading: boolean,
-  setMicroLoading: SetMicroLoading,
-) => {
+export const handleRoutesUtil = (routes: any[]) => {
   const microAppsMap: MicroAppsMap = new Map();
-  const menuData = transformRoutesUtil(
-    routes,
-    microAppsMap,
-    microLoading,
-    setMicroLoading,
-  );
+  const menuData = transformRoutesUtil(routes, microAppsMap);
   const microApps = [...microAppsMap.values()];
   return { microApps, menuData };
 };
@@ -66,14 +57,10 @@ export const handleRoutesUtil = (
  * 递归转换路由数据
  * @param routes 路由数据
  * @param microApps 子应用列表
- * @param microLoading 微前端加载状态
- * @param setMicroLoading 设置微前端加载状态函数
  */
 export const transformRoutesUtil = (
   routes: any[],
   microAppsMap: MicroAppsMap,
-  microLoading: boolean,
-  setMicroLoading: SetMicroLoading,
 ) => {
   if (!routes || routes?.length === 0) return [];
 
@@ -99,13 +86,14 @@ export const transformRoutesUtil = (
         ...rest,
         name,
         container: `#${rootId}`,
-        loader: setMicroLoading,
+        loader: (loading: boolean) =>
+          sdk.store.getState().setMicroAppLoading(loading),
       };
 
       // 添加子应用信息
       microAppsMap.set(name, microAppInfo);
 
-      element = <Microapp name={name} rootId={rootId} loading={microLoading} />; // 子应用挂载组件
+      element = <Microapp name={name} rootId={rootId} />; // 子应用挂载组件
     } else if (component === 'Outlet') {
       element = <Outlet />; // 路由出口组件
     } else {
@@ -114,12 +102,7 @@ export const transformRoutesUtil = (
 
     // 转换子路由
     const processedChildren: RouteObject[] = children?.length
-      ? transformRoutesUtil(
-          children,
-          microAppsMap,
-          microLoading,
-          setMicroLoading,
-        )
+      ? transformRoutesUtil(children, microAppsMap)
       : [];
 
     return {

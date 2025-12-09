@@ -23,7 +23,6 @@ function App() {
     },
   ]);
   const [loading, setLoading] = useState(false);
-  const [microLoading, setMicroLoading] = useState(false);
 
   /** 获取数据信息 */
   const getData = async () => {
@@ -38,8 +37,6 @@ function App() {
       // 处理路由数据
       const { microApps = [], menuData = [] } = handleRoutesUtil(
         routerData?.data || [],
-        microLoading,
-        setMicroLoading,
       );
 
       if (sdk.config.qiankunMode === 'router') {

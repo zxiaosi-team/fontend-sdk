@@ -2,15 +2,17 @@ import { lifeCyclesUtil } from '@/utils';
 import { sdk } from '@zxiaosi/sdk';
 import { loadMicroApp } from 'qiankun';
 import React, { memo, useEffect } from 'react';
+import { useStore } from 'zustand';
 
 interface Props {
-  loading?: boolean;
   name: string;
   rootId: string;
 }
 
 /** 子应用挂载节点 */
-const Microapp: React.FC<Props> = ({ name, rootId, loading }) => {
+const Microapp: React.FC<Props> = ({ name, rootId }) => {
+  const microAppLoading = useStore(sdk.store, (state) => state.microAppLoading);
+
   useEffect(() => {
     if (!name || sdk.config.qiankunMode !== 'load') return;
 
@@ -34,7 +36,7 @@ const Microapp: React.FC<Props> = ({ name, rootId, loading }) => {
 
   return (
     <>
-      {loading && <div>Loading...</div>}
+      {microAppLoading && <div>Loading...</div>}
       <main id={rootId}></main>
     </>
   );

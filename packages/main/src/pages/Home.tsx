@@ -1,8 +1,15 @@
 import { sdk } from '@zxiaosi/sdk';
 import { useState } from 'react';
+import { useStore } from 'zustand';
+import { useShallow } from 'zustand/shallow';
 
 /** 首页 */
 const Home = () => {
+  const [theme, setTheme] = useStore(
+    sdk.store,
+    useShallow((state) => [state.theme, state.setTheme]),
+  );
+
   const [token, setToken] = useState<string>('');
   /** 设置Token */
   const handleSetToken = () => {
@@ -19,6 +26,11 @@ const Home = () => {
     sdk.client.navigate(uri);
   };
 
+  /** 设置主题 */
+  const handleChangeTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
     <h2>
       Home
@@ -28,6 +40,10 @@ const Home = () => {
       <br />
       <br />
       Token: {token}
+      <br />
+      <br />
+      <button onClick={handleChangeTheme}>设置主题</button>
+      Theme: {theme}
       <br />
       <br />
       <button onClick={() => handlePageTo('/subapp1')}>跳转到 Subapp1</button>
