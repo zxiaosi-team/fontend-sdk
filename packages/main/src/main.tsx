@@ -6,6 +6,7 @@ import {
   SdkClientPlugin,
   SdkConfigPlugin,
   SdkStoragePlugin,
+  SdkStorePlugin,
 } from '@zxiaosi/sdk';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
@@ -27,6 +28,7 @@ sdk
     },
   })
   .use(SdkStoragePlugin)
+  .use(SdkStorePlugin)
   .mount('sdk');
 
 /** 渲染主应用 */
