@@ -5,6 +5,7 @@ import {
   SdkAppPlugin,
   SdkClientPlugin,
   SdkConfigPlugin,
+  SdkI18nPlugin,
   SdkStoragePlugin,
   SdkStorePlugin,
 } from '@zxiaosi/sdk';
@@ -27,6 +28,7 @@ sdk
       layout: 'mix',
     },
   })
+  .use(SdkI18nPlugin)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
   .mount('sdk');
