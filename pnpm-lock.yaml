@@ -38,6 +38,9 @@ importers:
       antd:
         specifier: ^5.29.1
         version: 5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       qiankun:
         specifier: ^2.10.16
         version: 2.10.16
@@ -90,6 +93,9 @@ importers:
       antd:
         specifier: ^5.29.1
         version: 5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -136,6 +142,9 @@ importers:
       antd:
         specifier: ^5.29.1
         version: 5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       react:
         specifier: ^18.3.1
         version: 18.3.1
