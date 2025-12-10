@@ -1,28 +1,55 @@
 import { WithRouterInfo } from '@/components/withRouterInfo';
 import BaseLayout from '@/pages/Layout';
 import {
+  getDefaultLocaleUtil,
+  getDefaultThemeUtil,
   getFirstPagePathUtil,
   handleRoutesUtil,
   lifeCyclesUtil,
 } from '@/utils';
 import { sdk } from '@zxiaosi/sdk';
+import { theme as antdTheme, ConfigProvider } from 'antd';
 import { registerMicroApps, start } from 'qiankun';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
   type RouteObject,
 } from 'react-router-dom';
+import { useStore } from 'zustand';
+import { useShallow } from 'zustand/shallow';
+
+const { defaultAlgorithm, darkAlgorithm } = antdTheme;
+
+const defaultRoutes: RouteObject[] = [
+  {
+    path: '*',
+    element: <div>404</div>,
+  },
+];
 
 function App() {
-  const [routes, setRoutes] = useState<RouteObject[]>([
-    {
-      path: '*',
-      element: <div>404</div>,
-    },
-  ]);
+  const [locale, setLocale, theme, setTheme] = useStore(
+    sdk.store,
+    useShallow((state) => [
+      state.locale,
+      state.setLocale,
+      state.theme,
+      state.setTheme,
+    ]),
+  );
+
+  const [routes, setRoutes] = useState<RouteObject[]>(defaultRoutes);
   const [loading, setLoading] = useState(false);
+
+  // 设置Antd主题算法
+  const algorithm = theme === 'light' ? defaultAlgorithm : darkAlgorithm;
+
+  const config = useMemo(() => {
+    const antdConfig = JSON.parse(JSON.stringify(sdk.config.antdConfig)); // 改变引用地址
+    return antdConfig;
+  }, [locale, theme]);
 
   /** 获取数据信息 */
   const getData = async () => {
@@ -33,6 +60,11 @@ function App() {
         sdk.api.getRoutesApi(),
       ]);
       setLoading(() => false);
+
+      // 设置主题和语言
+      const { theme, locale } = userData?.data?.settings || {};
+      setTheme(theme || getDefaultThemeUtil());
+      setLocale(locale || getDefaultLocaleUtil());
 
       // 处理路由数据
       const { microApps = [], menuData = [] } = handleRoutesUtil(
@@ -85,10 +117,20 @@ function App() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <RouterProvider
-      router={createBrowserRouter(routes, { basename: '/' })}
-      future={{ v7_startTransition: false }}
-    />
+    <ConfigProvider
+      {...config}
+      theme={{
+        algorithm,
+        ...config.theme,
+      }}
+    >
+      <Suspense fallback={<>Loading...</>}>
+        <RouterProvider
+          router={createBrowserRouter(routes, { basename: '/' })}
+          future={{ v7_startTransition: false }}
+        />
+      </Suspense>
+    </ConfigProvider>
   );
 }
 

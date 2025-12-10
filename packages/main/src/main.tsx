@@ -1,3 +1,4 @@
+import I18nConfig from '@/i18n/index';
 import { getRoutesApi, getUserInfoApi } from '@/service/index.ts';
 import {
   sdk,
@@ -28,7 +29,7 @@ sdk
       layout: 'mix',
     },
   })
-  .use(SdkI18nPlugin)
+  .use(SdkI18nPlugin, I18nConfig)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
   .mount('sdk');

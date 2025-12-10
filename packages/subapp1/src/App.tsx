@@ -1,3 +1,5 @@
+import { sdk } from '@zxiaosi/sdk';
+import { ConfigProvider } from 'antd';
 import { lazy, Suspense } from 'react';
 import {
   createBrowserRouter,
@@ -21,12 +23,14 @@ const routes: RouteObject[] = [
 
 function App() {
   return (
-    <Suspense fallback={<div>loading...</div>}>
-      <RouterProvider
-        router={createBrowserRouter(routes, { basename: '/subapp1' })}
-        future={{ v7_startTransition: false }}
-      />
-    </Suspense>
+    <ConfigProvider {...sdk.config.antdConfig}>
+      <Suspense fallback={<div>loading...</div>}>
+        <RouterProvider
+          router={createBrowserRouter(routes, { basename: '/subapp1' })}
+          future={{ v7_startTransition: false }}
+        />
+      </Suspense>
+    </ConfigProvider>
   );
 }
 
