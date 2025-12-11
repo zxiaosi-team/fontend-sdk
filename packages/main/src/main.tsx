@@ -9,6 +9,7 @@ import {
   SdkI18nPlugin,
   SdkStoragePlugin,
   SdkStorePlugin,
+  SdkUIPlugin,
 } from '@zxiaosi/sdk';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
@@ -32,6 +33,7 @@ sdk
   .use(SdkI18nPlugin, I18nConfig)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
+  .use(SdkUIPlugin)
   .mount('sdk');
 
 /** 渲染主应用 */
