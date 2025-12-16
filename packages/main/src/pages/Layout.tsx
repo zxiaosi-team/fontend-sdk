@@ -1,6 +1,13 @@
 import ProLayout from '@ant-design/pro-layout';
 import { sdk } from '@zxiaosi/sdk';
-import { Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
+import { Suspense, useState } from 'react';
+import {
+  Outlet,
+  useLocation,
+  useMatches,
+  useNavigate,
+  type Location,
+} from 'react-router-dom';
 
 /** 布局组件 */
 const Layout = () => {
@@ -10,6 +17,8 @@ const Layout = () => {
 
   const currentMatch = matches.at(-1)?.handle?.crumb() || {};
   const noLayout = JSON.parse(currentMatch?.routeAttr || '{}')?.noLayout;
+
+  const [isAuth, setIsAuth] = useState(false);
 
   /** 菜单点击事件 */
   const handleMenuClick = (item: any) => {
@@ -21,14 +30,22 @@ const Layout = () => {
     navigate('/');
   };
 
+  /** 页面切换事件 */
+  const handlePageChange = (location: Location) => {
+    const pathName = location.pathname;
+
+    // 是否有权限
+    setIsAuth(sdk.app.permissions.includes(pathName));
+  };
+
   return (
     <ProLayout
-      {...sdk.config.proLayoutConfig}
       location={location}
       menuItemRender={(item, dom) => (
         <div onClick={() => handleMenuClick(item)}>{dom}</div>
       )}
       onMenuHeaderClick={handleMenuHeaderClick}
+      onPageChange={handlePageChange}
       {...(noLayout && {
         headerRender: false,
         footerRender: false,
@@ -36,9 +53,13 @@ const Layout = () => {
       })}
       menu={{
         request: async () => sdk.app.menuData || [],
+        ...sdk.config.proLayoutConfig.menu,
       }}
+      {...sdk.config.proLayoutConfig}
     >
-      <Outlet />
+      <Suspense fallback={<>Loading...</>}>
+        {isAuth ? <Outlet /> : <>{sdk.ui.renderComponent('NoPermission')}</>}
+      </Suspense>
     </ProLayout>
   );
 };

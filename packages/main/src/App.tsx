@@ -101,7 +101,13 @@ function App() {
 
       setRoutes(newRoutes); // 重新赋值，触发路由更新
 
-      sdk.app = { ...sdk.app, allRoutes, microApps, menuData };
+      sdk.app = {
+        ...sdk.app,
+        ...userData?.data,
+        allRoutes,
+        microApps,
+        menuData,
+      };
     } catch (error) {
       console.error(error);
       setLoading(() => false);
