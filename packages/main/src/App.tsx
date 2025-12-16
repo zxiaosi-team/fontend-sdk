@@ -22,14 +22,14 @@ import { useShallow } from 'zustand/shallow';
 
 const { defaultAlgorithm, darkAlgorithm } = antdTheme;
 
-const defaultRoutes: RouteObject[] = [
-  {
-    path: '*',
-    element: <div>404</div>,
-  },
-];
-
 function App() {
+  const defaultRoutes: RouteObject[] = [
+    {
+      path: '*',
+      element: sdk.ui.renderComponent('NotFound'),
+    },
+  ];
+
   const [locale, setLocale, theme, setTheme] = useStore(
     sdk.store,
     useShallow((state) => [

@@ -11,9 +11,12 @@ import {
   SdkStorePlugin,
   SdkUIPlugin,
 } from '@zxiaosi/sdk';
+import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+
+const NotFound = lazy(() => import('./pages/NotFound.tsx'));
 
 /** 挂载 SDK */
 sdk
@@ -33,7 +36,7 @@ sdk
   .use(SdkI18nPlugin, I18nConfig)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
-  .use(SdkUIPlugin)
+  .use(SdkUIPlugin, { NotFound })
   .mount('sdk');
 
 /** 渲染主应用 */
