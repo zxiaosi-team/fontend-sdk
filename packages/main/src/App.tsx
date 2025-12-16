@@ -23,16 +23,21 @@ import { useShallow } from 'zustand/shallow';
 const { defaultAlgorithm, darkAlgorithm } = antdTheme;
 
 function App() {
+  const loginPath = sdk.config.loginPath;
+
   const defaultRoutes: RouteObject[] = [
     {
-      path: '/login',
+      path: loginPath,
       element: sdk.ui.renderComponent('Login'),
     },
     {
       path: '*',
       element: sdk.ui.renderComponent('NotFound'),
     },
-  ];
+  ].map((_) => ({
+    ..._,
+    element: <WithRouterInfo>{_.element}</WithRouterInfo>,
+  }));
 
   const [locale, setLocale, theme, setTheme] = useStore(
     sdk.store,
@@ -55,8 +60,13 @@ function App() {
     return antdConfig;
   }, [locale, theme]);
 
+  /** 设置主题和国际化 */
+  const setThemeLocale = (apiTheme?: any, apiLocale?: any) => {
+    setTheme(apiTheme || getDefaultThemeUtil());
+    setLocale(apiLocale || getDefaultLocaleUtil());
+  };
   /** 获取数据信息 */
-  const getData = async () => {
+  const initData = async () => {
     try {
       setLoading(() => true);
       const [userData, routerData] = await Promise.all([
@@ -67,8 +77,7 @@ function App() {
 
       // 设置主题和语言
       const { theme, locale } = userData?.data?.settings || {};
-      setTheme(theme || getDefaultThemeUtil());
-      setLocale(locale || getDefaultLocaleUtil());
+      setThemeLocale(theme, locale);
 
       // 处理路由数据
       const { microApps = [], menuData = [] } = handleRoutesUtil(
@@ -89,21 +98,23 @@ function App() {
       // 合并所有路由
       const allRoutes: RouteObject[] = [
         ...routes,
-        { path: '/', element: <Navigate to={firstPath} replace /> },
         {
           path: '/',
-          element: <BaseLayout />,
+          element: <Navigate to={firstPath} replace />,
+        },
+        {
+          path: '/',
+          element: (
+            <WithRouterInfo>
+              <BaseLayout />
+            </WithRouterInfo>
+          ),
           children: menuData,
           errorElement: <>找不到页面</>,
         },
       ];
 
-      const newRoutes = allRoutes.map((item) => ({
-        ...item,
-        element: <WithRouterInfo>{item.element}</WithRouterInfo>,
-      }));
-
-      setRoutes(newRoutes); // 重新赋值，触发路由更新
+      setRoutes(allRoutes); // 重新赋值，触发路由更新
 
       sdk.app = {
         ...sdk.app,
@@ -116,12 +127,19 @@ function App() {
       console.error(error);
       setLoading(() => false);
     }
-
-    setLoading(() => false);
   };
 
   useEffect(() => {
-    getData();
+    sdk.app.initData = initData;
+    sdk.app.allRoutes = defaultRoutes;
+
+    const paths = sdk.config.customRoutes?.map((item) => item.path);
+    const pathName = window.location.pathname;
+    const noNeedAuth = [loginPath, ...paths]?.includes(pathName);
+
+    // 如果时登录页面
+    if (noNeedAuth) setThemeLocale();
+    else initData();
   }, []);
 
   if (loading) return <div>Loading...</div>;

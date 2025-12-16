@@ -28,6 +28,7 @@ sdk
   .use(SdkAppPlugin)
   .use(SdkClientPlugin)
   .use(SdkConfigPlugin, {
+    qiankunMode: 'load',
     proLayoutConfig: {
       title: '小四先生的栈',
       layout: 'mix',
