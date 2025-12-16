@@ -25,6 +25,10 @@ const { defaultAlgorithm, darkAlgorithm } = antdTheme;
 function App() {
   const defaultRoutes: RouteObject[] = [
     {
+      path: '/login',
+      element: sdk.ui.renderComponent('Login'),
+    },
+    {
       path: '*',
       element: sdk.ui.renderComponent('NotFound'),
     },

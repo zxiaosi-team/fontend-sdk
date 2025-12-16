@@ -34,6 +34,10 @@ const Layout = () => {
   const handlePageChange = (location: Location) => {
     const pathName = location.pathname;
 
+    // 是否有用户信息
+    if (!sdk.app.user || Object.keys(sdk.app.user).length === 0)
+      return sdk.app.pageToLogin();
+
     // 是否有权限
     setIsAuth(sdk.app.permissions.includes(pathName));
   };
