@@ -49,9 +49,6 @@ function App() {
     ]),
   );
 
-  const [routes, setRoutes] = useState<RouteObject[]>(defaultRoutes);
-  const [loading, setLoading] = useState(false);
-
   // 设置Antd主题算法
   const algorithm = theme === 'light' ? defaultAlgorithm : darkAlgorithm;
 
@@ -59,6 +56,9 @@ function App() {
     const antdConfig = JSON.parse(JSON.stringify(sdk.config.antdConfig)); // 改变引用地址
     return antdConfig;
   }, [locale, theme]);
+
+  const [routes, setRoutes] = useState<RouteObject[]>(defaultRoutes);
+  const [loading, setLoading] = useState(false);
 
   /** 设置主题和国际化 */
   const setThemeLocale = (apiTheme?: any, apiLocale?: any) => {
@@ -142,21 +142,17 @@ function App() {
     else initData();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-
   return (
-    <ConfigProvider
-      {...config}
-      theme={{
-        algorithm,
-        ...config.theme,
-      }}
-    >
-      <Suspense fallback={<>Loading...</>}>
-        <RouterProvider
-          router={createBrowserRouter(routes, { basename: '/' })}
-          future={{ v7_startTransition: false }}
-        />
+    <ConfigProvider {...config} theme={{ algorithm, ...config.theme }}>
+      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
+        {loading ? (
+          sdk.ui.renderComponent('Loading')
+        ) : (
+          <RouterProvider
+            router={createBrowserRouter(routes, { basename: '/' })}
+            future={{ v7_startTransition: false }}
+          />
+        )}
       </Suspense>
     </ConfigProvider>
   );
