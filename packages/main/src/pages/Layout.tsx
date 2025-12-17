@@ -61,7 +61,7 @@ const Layout = () => {
       }}
       {...sdk.config.proLayoutConfig}
     >
-      <Suspense fallback={<>Loading...</>}>
+      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
         {isAuth ? <Outlet /> : <>{sdk.ui.renderComponent('NoPermission')}</>}
       </Suspense>
     </ProLayout>
