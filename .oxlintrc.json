@@ -1,6 +1,5 @@
 {
   "rules": {},
-  "files": ["**/*.{ts,tsx}"],
   "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "react-perf"],
   "ignorePatterns": ["**/node_modules/**"]
 }
