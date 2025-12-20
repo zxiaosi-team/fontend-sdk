@@ -4,10 +4,7 @@ import { sdk } from '@zxiaosi/sdk';
 import { lazy, Suspense } from 'react';
 import { Outlet, type RouteObject } from 'react-router-dom';
 
-import Microapp from '@/components/Microapp';
-
 type MicroAppsMap = Map<string, RegistrableApp<ObjectType>>;
-type SetMicroLoading = React.Dispatch<React.SetStateAction<boolean>>;
 
 /** qiankun 生命周期 钩子函数 */
 export const lifeCyclesUtil: FrameworkLifeCycles<ObjectType> = {
@@ -95,7 +92,7 @@ export const transformRoutesUtil = (
       // 添加子应用信息
       microAppsMap.set(name, microAppInfo);
 
-      element = <Microapp name={name} rootId={rootId} />; // 子应用挂载组件
+      element = sdk.ui.renderComponent('Microapp', { name, rootId }); // 子应用挂载组件
     } else if (component === 'Outlet') {
       element = <Outlet />; // 路由出口组件
     } else {

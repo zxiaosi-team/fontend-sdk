@@ -147,7 +147,7 @@ function App() {
     <ConfigProvider {...config} theme={{ algorithm, ...config.theme }}>
       <Suspense fallback={sdk.ui.renderComponent('Loading')}>
         {loading ? (
-          sdk.ui.renderComponent('Loading')
+          sdk.ui.renderComponent('Loading', { isInitData: true })
         ) : (
           <RouterProvider
             router={createBrowserRouter(routes, { basename: '/' })}
