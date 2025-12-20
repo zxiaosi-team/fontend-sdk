@@ -1,8 +1,9 @@
-import { lifeCyclesUtil } from '@/utils';
 import { sdk } from '@zxiaosi/sdk';
 import { loadMicroApp } from 'qiankun';
 import React, { memo, useEffect } from 'react';
 import { useStore } from 'zustand';
+
+import { lifeCyclesUtil } from '@/utils';
 
 interface Props {
   name: string;

@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import qiankun from 'vite-plugin-qiankun-lite';
+
 import { name } from './package.json';
 
 // https://vite.dev/config/
