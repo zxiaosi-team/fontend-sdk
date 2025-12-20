@@ -8,7 +8,7 @@ name: Publish And Release
 on:
   push:
     tags:
-      - 'v*' 
+      - 'v*'
 
 jobs:
   build-and-publish:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         # 使用的第三方action名称，其实是仓库地址的缩写，省略了github.com/前缀，完整是https://github.com/actions/checkout/tree/v4/
         uses: actions/checkout@v4
-      
+
       # Step2: 安装pnpm环境
       - name: Install pnpm
         uses: pnpm/action-setup@v4
