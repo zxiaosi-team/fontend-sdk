@@ -1,12 +1,3 @@
-import { WithRouterInfo } from '@/components/withRouterInfo';
-import BaseLayout from '@/pages/Layout';
-import {
-  getDefaultLocaleUtil,
-  getDefaultThemeUtil,
-  getFirstPagePathUtil,
-  handleRoutesUtil,
-  lifeCyclesUtil,
-} from '@/utils';
 import { sdk } from '@zxiaosi/sdk';
 import { theme as antdTheme, ConfigProvider } from 'antd';
 import { registerMicroApps, start } from 'qiankun';
@@ -19,6 +10,16 @@ import {
 } from 'react-router-dom';
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
+
+import { WithRouterInfo } from '@/components/withRouterInfo';
+import BaseLayout from '@/pages/Layout';
+import {
+  getDefaultLocaleUtil,
+  getDefaultThemeUtil,
+  getFirstPagePathUtil,
+  handleRoutesUtil,
+  lifeCyclesUtil,
+} from '@/utils';
 
 const { defaultAlgorithm, darkAlgorithm } = antdTheme;
 

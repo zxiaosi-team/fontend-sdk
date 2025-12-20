@@ -1,5 +1,3 @@
-import I18nConfig from '@/i18n/index';
-import { getRoutesApi, getUserInfoApi } from '@/service/index.ts';
 import {
   sdk,
   SdkApiPlugin,
@@ -13,6 +11,10 @@ import {
 } from '@zxiaosi/sdk';
 import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
+
+import I18nConfig from '@/i18n/index';
+import { getRoutesApi, getUserInfoApi } from '@/service/index.ts';
+
 import App from './App.tsx';
 import './index.css';
 

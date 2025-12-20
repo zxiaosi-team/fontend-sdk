@@ -1,8 +1,10 @@
-import Microapp from '@/components/Microapp';
-import { sdk } from '@zxiaosi/sdk';
 import type { FrameworkLifeCycles, ObjectType, RegistrableApp } from 'qiankun';
+
+import { sdk } from '@zxiaosi/sdk';
 import { lazy, Suspense } from 'react';
 import { Outlet, type RouteObject } from 'react-router-dom';
+
+import Microapp from '@/components/Microapp';
 
 type MicroAppsMap = Map<string, RegistrableApp<ObjectType>>;
 type SetMicroLoading = React.Dispatch<React.SetStateAction<boolean>>;
