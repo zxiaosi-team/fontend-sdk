@@ -26,7 +26,7 @@ export async function bootstrap() {
 
 export async function mount(props: any) {
   console.log(`${name} mount`, props);
-  sdk.extend('sdk'); // 继承 sdk 功能
+  sdk.extend(props?.sdk?.name); // 继承 sdk 功能
   render(props);
 }
 

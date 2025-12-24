@@ -44,12 +44,6 @@ const handleRoutesData = () => {
         },
       ],
     },
-    {
-      name: '403',
-      path: '/403',
-      component: 'NoPermission',
-      hideInMenu: true,
-    },
   ];
 };
 
