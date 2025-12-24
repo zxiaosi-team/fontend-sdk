@@ -23,9 +23,6 @@ importers:
 
   packages/main:
     dependencies:
-      '@ant-design/pro-layout':
-        specifier: ^7.22.7
-        version: 7.22.7(antd@5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@zxiaosi/sdk':
         specifier: workspace:*
         version: link:../../sdk
@@ -35,9 +32,6 @@ importers:
       dayjs:
         specifier: ^1.11.19
         version: 1.11.19
-      qiankun:
-        specifier: ^2.10.16
-        version: 2.10.16
       react:
         specifier: ^18.3.1
         version: 18.3.1
