@@ -12,7 +12,6 @@ import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
 import { WithRouterInfo } from '@/components/withRouterInfo';
-import BaseLayout from '@/pages/Layout';
 import {
   getDefaultLocaleUtil,
   getDefaultThemeUtil,
@@ -95,6 +94,7 @@ function App() {
 
       // 获取首页路径
       const firstPath = getFirstPagePathUtil(menuData);
+      console.log('menuData', menuData);
 
       // 合并所有路由
       const allRoutes: RouteObject[] = [
@@ -106,9 +106,7 @@ function App() {
         {
           path: '/',
           element: (
-            <WithRouterInfo>
-              <BaseLayout />
-            </WithRouterInfo>
+            <WithRouterInfo>{sdk.ui.renderComponent('Layout')}</WithRouterInfo>
           ),
           children: menuData,
           errorElement: <>找不到页面</>,
@@ -145,7 +143,9 @@ function App() {
 
   return (
     <ConfigProvider {...config} theme={{ algorithm, ...config.theme }}>
-      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
+      <Suspense
+        fallback={sdk.ui.renderComponent('Loading', { isSuspense: true })}
+      >
         {loading ? (
           sdk.ui.renderComponent('Loading', { isInitData: true })
         ) : (

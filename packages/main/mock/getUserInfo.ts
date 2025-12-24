@@ -5,7 +5,13 @@ const useInfo = {
     usename: 'admin',
     nickName: '管理员',
   },
-  permissions: ['/home', '/subapp1', '/subapp2/home', '/subapp2/detail'],
+  permissions: [
+    '/home',
+    '/subapp1',
+    // '/subapp2/home',
+    '/subapp2/detail',
+    '/403',
+  ],
   roles: ['admin'],
   system: {
     // 后端保存的系统设置

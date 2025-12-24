@@ -1,6 +1,5 @@
 import { sdk } from '@zxiaosi/sdk';
 import { Button } from 'antd';
-import { useEffect } from 'react';
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
@@ -29,10 +28,6 @@ const Home = () => {
   const handleChangeLocale = () => {
     setLocale(locale === 'zh-CN' ? 'en-US' : 'zh-CN');
   };
-
-  useEffect(() => {
-    sdk.api.getUserInfoApi();
-  }, []);
 
   return (
     <h2>
