@@ -1,24 +1,17 @@
 import ProLayout from '@ant-design/pro-layout';
-import { sdk } from '@zxiaosi/sdk';
-import { Suspense, useState } from 'react';
-import {
-  Outlet,
-  useLocation,
-  useMatches,
-  useNavigate,
-  type Location,
-} from 'react-router-dom';
+import { Suspense } from 'react';
+import { Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
+
+import { sdk } from '@/core';
 
 /** 布局组件 */
-const Layout = () => {
+const Layout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const matches = useMatches();
 
-  const currentMatch = matches.at(-1)?.handle?.crumb() || {};
+  const currentMatch = matches[matches.length - 1]?.handle?.crumb() || {};
   const noLayout = JSON.parse(currentMatch?.routeAttr || '{}')?.noLayout;
-
-  const [isAuth, setIsAuth] = useState(false);
 
   /** 菜单点击事件 */
   const handleMenuClick = (item: any) => {
@@ -32,14 +25,9 @@ const Layout = () => {
 
   /** 页面切换事件 */
   const handlePageChange = (location: Location) => {
-    const pathName = location.pathname;
-
     // 是否有用户信息
     if (!sdk.app.user || Object.keys(sdk.app.user).length === 0)
       return sdk.app.pageToLogin();
-
-    // 是否有权限
-    setIsAuth(sdk.app.permissions.includes(pathName));
   };
 
   return (
@@ -61,8 +49,10 @@ const Layout = () => {
       }}
       {...sdk.config.proLayoutConfig}
     >
-      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
-        {isAuth ? <Outlet /> : <>{sdk.ui.renderComponent('NoPermission')}</>}
+      <Suspense
+        fallback={sdk.ui.renderComponent('Loading', { isSuspense: true })}
+      >
+        <Outlet />
       </Suspense>
     </ProLayout>
   );

@@ -25,22 +25,6 @@ export const lifeCyclesUtil: FrameworkLifeCycles<ObjectType> = {
   },
 };
 
-/** 导入指定文件下的路由模块 */
-const modules = import.meta.glob('@/pages/**.tsx');
-console.log('modules', modules);
-
-/** 异步懒加载组件 */
-const lazyLoad = (moduleName: string) => {
-  // 根据模块名匹配对应的组件
-  const Module = lazy(modules[`/src/pages/${moduleName}.tsx`] as any);
-
-  return (
-    <Suspense fallback={<div>loading...</div>}>
-      <Module />
-    </Suspense>
-  );
-};
-
 /**
  * 处理路由数据
  * @param routes 路由数据
@@ -96,7 +80,7 @@ export const transformRoutesUtil = (
     } else if (component === 'Outlet') {
       element = <Outlet />; // 路由出口组件
     } else {
-      element = lazyLoad(component); // 普通组件
+      element = sdk.ui.renderComponent(component); // 普通组件
     }
 
     // 转换子路由
@@ -106,7 +90,7 @@ export const transformRoutesUtil = (
 
     return {
       ...item,
-      key: `${locale}_${icon}_${path}`, // 唯一key, 判断菜单是否折叠
+      key: `${path}_${locale}_${icon}`, // 唯一key, 判断菜单是否折叠
       element,
       children: processedChildren,
       handle: {

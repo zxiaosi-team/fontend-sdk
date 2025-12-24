@@ -9,22 +9,29 @@ import {
 
 const Home = lazy(() => import('@/pages/Home'));
 const Detail = lazy(() => import('@/pages/Detail'));
+const Layout = lazy(() => import('@/pages/Layout'));
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/detail',
-    element: <Detail />,
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/detail',
+        element: <Detail />,
+      },
+    ],
   },
 ];
 
 function App() {
   return (
     <ConfigProvider {...sdk.config.antdConfig}>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<>Loading...</>}>
         <RouterProvider
           router={createBrowserRouter(routes, { basename: '/subapp1' })}
           future={{ v7_startTransition: false }}
