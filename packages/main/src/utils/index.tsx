@@ -1,7 +1,6 @@
 import type { FrameworkLifeCycles, ObjectType, RegistrableApp } from 'qiankun';
 
 import { sdk } from '@zxiaosi/sdk';
-import { lazy, Suspense } from 'react';
 import { Outlet, type RouteObject } from 'react-router-dom';
 
 type MicroAppsMap = Map<string, RegistrableApp<ObjectType>>;

@@ -8,7 +8,7 @@ const useInfo = {
   permissions: [
     '/home',
     '/subapp1',
-    // '/subapp2/home',
+    '/subapp2/home',
     '/subapp2/detail',
     '/403',
   ],
