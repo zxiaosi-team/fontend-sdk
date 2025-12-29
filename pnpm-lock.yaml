@@ -69,6 +69,9 @@ importers:
       vite:
         specifier: npm:rolldown-vite@7.2.5
         version: rolldown-vite@7.2.5(@types/node@24.10.1)(esbuild@0.25.12)(yaml@2.8.2)
+      vite-plugin-externals:
+        specifier: ^0.6.2
+        version: 0.6.2(rolldown-vite@7.2.5(@types/node@24.10.1)(esbuild@0.25.12)(yaml@2.8.2))
       vite-plugin-mock:
         specifier: ^2.9.8
         version: 2.9.8(mockjs@1.1.0)(rolldown-vite@7.2.5(@types/node@24.10.1)(esbuild@0.25.12)(yaml@2.8.2))
