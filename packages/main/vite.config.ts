@@ -6,6 +6,8 @@ import { viteMockServe } from 'vite-plugin-mock';
 
 // https://vite.dev/config/
 export default ({ mode }: ConfigEnv) => {
+  // 是否生产环境
+  const isProduction = mode === 'production';
   // 环境变量文件夹
   const envDir = resolve(__dirname, 'env');
 
@@ -35,7 +37,11 @@ export default ({ mode }: ConfigEnv) => {
       }),
       viteExternalsPlugin({
         react: 'React',
-        'react-dom': 'ReactDOM',
+        // 开发环境不排除 react-dom 依赖, 防止热更新失效
+        ...(isProduction && {
+          'react-dom': 'ReactDOM',
+          'react-dom/client': 'ReactDOM',
+        }),
       }),
     ],
   });
