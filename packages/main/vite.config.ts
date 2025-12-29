@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { ConfigEnv, defineConfig } from 'vite';
+import { ConfigEnv, defineConfig, loadEnv } from 'vite';
 import { viteExternalsPlugin } from 'vite-plugin-externals';
 import { viteMockServe } from 'vite-plugin-mock';
 
@@ -10,11 +10,13 @@ export default ({ mode }: ConfigEnv) => {
   const isProduction = mode === 'production';
   // 环境变量文件夹
   const envDir = resolve(__dirname, 'env');
+  // 加载环境变量
+  const env = loadEnv(mode, envDir);
 
   return defineConfig({
     envDir: envDir,
     server: {
-      port: 5137, // 主应用端口
+      port: Number(env.VITE_PORT), // 主应用端口
     },
     resolve: {
       alias: {
