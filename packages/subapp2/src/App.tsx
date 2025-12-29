@@ -31,7 +31,7 @@ const routes: RouteObject[] = [
 function App() {
   return (
     <ConfigProvider {...sdk.config.antdConfig}>
-      <Suspense fallback={<>Loading...</>}>
+      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
         <RouterProvider
           router={createBrowserRouter(routes, { basename: '/subapp2' })}
           future={{ v7_startTransition: false }}

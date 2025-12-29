@@ -5,6 +5,7 @@
     "build:all": "pnpm -r run build",
     "build:sdk": "pnpm -F sdk run build",
     "clean": "pnpm -r exec rimraf node_modules && npx rimraf node_modules",
+    "clean:cache": "pnpm -r exec rimraf node_modules/.vite",
     "dev:main": "pnpm -F main run dev",
     "dev:sdk": "pnpm -F sdk run dev",
     "dev:subapp1": "pnpm -F subapp1 run dev",
