@@ -192,7 +192,7 @@ importers:
         specifier: ^7.22.7
         version: 7.22.7(antd@5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       antd:
-        specifier: ^5.29.1
+        specifier: ^5.29.1 || ^6.0.0
         version: 5.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios:
         specifier: ^1.13.2
@@ -201,10 +201,10 @@ importers:
         specifier: ^2.10.16
         version: 2.10.16
       react:
-        specifier: ^18.3.1
+        specifier: ^18.3.1 || >=19.0.0
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: ^18.3.1 || >=19.0.0
         version: 18.3.1(react@18.3.1)
       react-intl-universal:
         specifier: ^2.13.4
