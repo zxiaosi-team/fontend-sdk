@@ -1,11 +1,14 @@
 import { sdk } from '@zxiaosi/sdk';
 import { ConfigProvider } from 'antd';
-import { lazy, Suspense } from 'react';
+import { cloneDeep } from 'es-toolkit';
+import { lazy, Suspense, useMemo } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
   type RouteObject,
 } from 'react-router-dom';
+import { useStore } from 'zustand';
+import { useShallow } from 'zustand/shallow';
 
 const Home = lazy(() => import('@/pages/Home'));
 const Detail = lazy(() => import('@/pages/Detail'));
@@ -29,8 +32,17 @@ const routes: RouteObject[] = [
 ];
 
 function App() {
+  const [locale, theme] = useStore(
+    sdk.store,
+    useShallow((state) => [state.locale, state.theme]),
+  );
+
+  const antdConfig = useMemo(() => {
+    return cloneDeep(sdk.config.antdConfig);
+  }, [locale, theme]);
+
   return (
-    <ConfigProvider {...sdk.config.antdConfig}>
+    <ConfigProvider {...antdConfig}>
       <Suspense fallback={sdk.ui.renderComponent('Loading')}>
         <RouterProvider
           router={createBrowserRouter(routes, { basename: '/subapp1' })}
