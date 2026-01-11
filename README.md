@@ -21,7 +21,7 @@ npm run build:sdk
 
 # 启动主应用
 npm run dev:main
-# 启动子应用
+# 启动微应用
 npm run dev:subapp1
 npm run dev:subapp2
 ```

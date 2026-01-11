@@ -11,14 +11,14 @@ const handleRoutesData = () => {
       component: 'Home',
     },
     {
-      name: '子应用1',
+      name: '微应用1',
       path: '/subapp1',
       component: 'Microapp',
       locale: 'menu.subapp1',
       routeAttr: `{"name": "subapp1", "entry": "${subapp1Entry}", "activeRule": "/subapp1", "rootId": "sub-app"}`,
       children: [
         {
-          name: '子应用1详情',
+          name: '微应用1详情',
           path: '/subapp1/detail',
           component: 'Microapp',
           hideInMenu: true,
@@ -26,18 +26,18 @@ const handleRoutesData = () => {
       ],
     },
     {
-      name: '子应用2',
+      name: '微应用2',
       path: '/',
       component: 'Outlet',
       children: [
         {
-          name: '子应用2首页',
+          name: '微应用2首页',
           path: '/subapp2/home',
           component: 'Microapp',
           routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app"}`,
         },
         {
-          name: '子应用2详情页',
+          name: '微应用2详情页',
           path: '/subapp2/detail',
           component: 'Microapp',
           routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app", "noLayout": true}`,
