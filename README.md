@@ -2,9 +2,15 @@
 
 - 旨在简化微前端功能
 
-- [规划图地址](https://excalidraw.com/#json=s2zc7f8zAhOnhX6NEMKcv,0qIxSEqNMs7vwkq0a6G2yQ)
+## 项目结构
 
-![](https://cdn.zxiaosi.com/hexo/micro-sdk/sdk1.0.png)
+```sh
+├── packages                      # 是测试 `sdk` 功能的项目
+|   └── main                      # 主应用
+|   └── subapp1                   # 微应用1
+|   └── subapp2                   # 微应用2
+├── sdk                           # sdk项目
+```
 
 ## 安装依赖
 
