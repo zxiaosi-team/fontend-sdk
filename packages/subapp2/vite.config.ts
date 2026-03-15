@@ -1,5 +1,6 @@
-import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+
+import react from '@vitejs/plugin-react';
 import { ConfigEnv, defineConfig, loadEnv } from 'vite';
 import { viteExternalsPlugin } from 'vite-plugin-externals';
 import qiankun from 'vite-plugin-qiankun-lite';
