@@ -12,14 +12,16 @@ import {
 import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import I18nConfig from '@/i18n/index';
-import { getRoutesApi, getUserInfoApi } from '@/service/index.ts';
+import CustomActions from '@/components/customActions/index.tsx';
 
 import './index.css';
+import I18nConfig from '@/i18n/index';
+import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
+
 import App from './App.tsx';
 
-const Home = lazy(() => import('./pages/Home.tsx'));
-const NotFound = lazy(() => import('./pages/NotFound.tsx'));
+const Home = lazy(() => import('@/pages/Home.tsx'));
+const NotFound = lazy(() => import('@/pages/NotFound.tsx'));
 
 /** 挂载 SDK */
 sdk
@@ -27,6 +29,7 @@ sdk
     config: { baseURL: '/api' },
     getRoutesApi: getRoutesApi,
     getUserInfoApi: getUserInfoApi,
+    loginApi: loginApi,
   })
   .use(SdkAppPlugin)
   .use(SdkClientPlugin)
@@ -35,6 +38,7 @@ sdk
     proLayoutConfig: {
       title: '小四先生的栈',
       layout: 'mix',
+      actionsRender: (props) => <CustomActions {...props} />,
     },
   })
   .use(SdkI18nPlugin, I18nConfig)
