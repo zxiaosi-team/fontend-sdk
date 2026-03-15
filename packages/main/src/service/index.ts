@@ -9,3 +9,8 @@ export const getUserInfoApi = async () => {
 export const getRoutesApi = async () => {
   return sdk.api.request('/getRoutes', { method: 'GET' });
 };
+
+/** 登录接口 */
+export const loginApi = async (params: any) => {
+  return sdk.api.request('/login', { method: 'POST', data: params });
+};

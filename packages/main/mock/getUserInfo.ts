@@ -26,7 +26,11 @@ export default [
     method: 'get',
     timeout: 1000, // 模拟延时
     response: ({ query, headers }) => {
-      return { code: 0, data: useInfo, msg: 'success' };
+      if (!headers.authorization) {
+        return { code: 20041, data: null, msg: '请先登录' };
+      } else {
+        return { code: 0, data: useInfo, msg: 'success' };
+      }
     },
   },
 ] as MockMethod[];
