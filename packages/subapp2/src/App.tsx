@@ -10,8 +10,8 @@ import {
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
-const Home = lazy(() => import('@/pages/Home'));
 const Detail = lazy(() => import('@/pages/Detail'));
+const Fullscreen = lazy(() => import('@/pages/Fullscreen'));
 const Layout = lazy(() => import('@/pages/Layout'));
 
 const routes: RouteObject[] = [
@@ -20,12 +20,12 @@ const routes: RouteObject[] = [
     element: <Layout />,
     children: [
       {
-        path: '/home',
-        element: <Home />,
-      },
-      {
         path: '/detail',
         element: <Detail />,
+      },
+      {
+        path: '/fullscreen',
+        element: <Fullscreen />,
       },
     ],
   },

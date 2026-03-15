@@ -3,13 +3,14 @@ import { MockMethod } from 'vite-plugin-mock';
 const useInfo = {
   user: {
     usename: 'admin',
-    nickName: '管理员',
+    nickName: 'Admin',
   },
   permissions: [
     '/home',
     '/subapp1',
-    '/subapp2/home',
+    '/subapp1/detail',
     '/subapp2/detail',
+    '/subapp2/fullscreen',
     '/403',
   ],
   roles: ['admin'],
