@@ -20,12 +20,12 @@ export default ({ mode }: ConfigEnv) => {
     base: '/',
     envDir: envDir,
     server: {
+      cors: true, // 允许跨域
+      origin: '*', // 允许跨域
       port: Number(env.VITE_PORT), // 服务端口
     },
     resolve: {
-      alias: {
-        '@': resolve(__dirname, 'src'), // 路径别名
-      },
+      tsconfigPaths: true, // 启用 tsconfig 路径解析功能
     },
     plugins: [
       react(),
