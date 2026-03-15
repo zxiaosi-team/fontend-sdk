@@ -45,7 +45,7 @@ const Home = () => {
       <Button onClick={() => handlePageTo('/subapp1/detail')}>
         跳转到详情页
       </Button>
-      <Button onClick={() => handlePageTo('/subapp2/home')}>
+      <Button onClick={() => handlePageTo('/subapp2/detail')}>
         跳转到 Subapp2
       </Button>
       <br />

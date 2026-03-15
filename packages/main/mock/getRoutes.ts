@@ -6,41 +6,50 @@ const handleRoutesData = () => {
 
   return [
     {
-      name: '首页',
+      name: 'Home',
       path: '/home',
       component: 'Home',
+      icon: 'DashboardOutlined',
+      locale: 'menu.home',
+      hideInMenu: false,
     },
     {
-      name: '微应用1',
+      name: 'Subapp1',
       path: '/subapp1',
       component: 'Microapp',
+      icon: 'SettingOutlined',
       locale: 'menu.subapp1',
       routeAttr: `{"name": "subapp1", "entry": "${subapp1Entry}", "activeRule": "/subapp1", "rootId": "sub-app"}`,
       children: [
         {
-          name: '微应用1详情',
+          name: 'Subapp1 detail',
           path: '/subapp1/detail',
           component: 'Microapp',
+          locale: 'menu.subapp1.detail',
           hideInMenu: true,
         },
       ],
     },
     {
-      name: '微应用2',
+      name: 'Subapp2',
       path: '/',
       component: 'Outlet',
+      icon: 'SettingOutlined',
+      locale: 'menu.subapp2',
       children: [
         {
-          name: '微应用2首页',
-          path: '/subapp2/home',
+          name: 'Subapp2 detail',
+          path: '/subapp2/detail',
           component: 'Microapp',
+          locale: 'menu.subapp2.detail',
           routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app"}`,
         },
         {
-          name: '微应用2详情页',
-          path: '/subapp2/detail',
+          name: 'Subapp2 fullscreen',
+          path: '/subapp2/fullscreen',
           component: 'Microapp',
-          routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app", "noLayout": true}`,
+          locale: 'menu.subapp2.fullscreen',
+          routeAttr: `{"name": "subapp2", "entry": "${subapp2Entry}", "activeRule": "/subapp2", "rootId": "sub-app", "noLayout": true}`, // fullscreen
         },
       ],
     },
