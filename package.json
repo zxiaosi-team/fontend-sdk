@@ -26,7 +26,7 @@
     "*": "oxfmt --no-error-on-unmatched-pattern"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
-  }
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@10.32.1"
 }
