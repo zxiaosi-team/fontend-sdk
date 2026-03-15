@@ -20,9 +20,7 @@ export default ({ mode }: ConfigEnv) => {
       port: Number(env.VITE_PORT), // 主应用端口
     },
     resolve: {
-      alias: {
-        '@': resolve(__dirname, 'src'), // 路径别名
-      },
+      tsconfigPaths: true,
     },
     plugins: [
       react(),
