@@ -38,11 +38,14 @@ export default ({ mode }: ConfigEnv) => {
       }),
       viteExternalsPlugin({
         react: 'React',
+
         // 开发环境不排除 react-dom 依赖, 防止热更新失效
-        ...(isProduction && {
-          'react-dom': 'ReactDOM',
-          'react-dom/client': 'ReactDOM',
-        }),
+        // 或者 浏览器安装 React Developer Tools 插件
+        'react-dom': 'ReactDOM',
+        'react-dom/client': 'ReactDOM',
+
+        // 排除 react-router-dom 依赖, 需要先引入 @remix-run/router、react-router
+        'react-router-dom': 'ReactRouterDOM',
       }),
     ],
   });
