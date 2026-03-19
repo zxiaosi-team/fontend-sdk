@@ -18,8 +18,8 @@
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
-    "oxfmt": "^0.40.0",
-    "oxlint": "^1.55.0"
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "oxlint --fix",
