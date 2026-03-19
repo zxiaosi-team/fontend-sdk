@@ -10,8 +10,8 @@ import {
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
-const Detail = lazy(() => import('@/pages/Detail'));
-const Fullscreen = lazy(() => import('@/pages/Fullscreen'));
+const Detail = lazy(() => import('@/pages/detail'));
+const Fullscreen = lazy(() => import('@/pages/fullscreen'));
 const Layout = lazy(() => import('@/pages/Layout'));
 
 const routes: RouteObject[] = [

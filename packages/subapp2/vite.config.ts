@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
+// @ts-ignore
+import prefixer from 'postcss-prefix-selector';
 import { ConfigEnv, defineConfig, loadEnv } from 'vite';
 import { viteExternalsPlugin } from 'vite-plugin-externals';
 import qiankun from 'vite-plugin-qiankun-lite';
@@ -26,6 +28,17 @@ export default ({ mode }: ConfigEnv) => {
     },
     resolve: {
       tsconfigPaths: true,
+    },
+    css: {
+      postcss: {
+        plugins: [
+          // https://www.npmjs.com/package/postcss-prefix-selector
+          // 配合 main.tsx 中 container.setAttribute() 使用
+          prefixer({
+            prefix: `[data-qiankun-${name}]`, // 添加作用域
+          }),
+        ],
+      },
     },
     plugins: [
       react(),
