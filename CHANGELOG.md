@@ -1,5 +1,11 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
+## [0.3.3](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.2...v0.3.3) - (2026-03-22)
+
+### 📦 依赖更新
+
+- 更新依赖 axios@1.13.6、es-toolkit@1.45.1、tsdown@0.21.4
+
 ## [0.3.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.1...v0.3.2) - (2026-03-15)
 
 ### 📚 文档更新
