@@ -1,6 +1,20 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
-## [0.3.3](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.2...v0.3.3) - (2026-03-22)
+## [0.3.4](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.4...v0.3.4) - (2026-03-23)
+
+### 🐛 Bug 修复
+
+- 使用 store.initState 统一管理用户状态
+- 更新 es-toolkit merge 导入路径
+
+### 🚀 新功能
+
+- 添加 useInitState hook
+- 添加 useIntl hook
+- 添加 useCrumb hook
+- 添加 usePermission hook
+
+## [0.3.3](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.2...v0.3.3) - (2026-03-21)
 
 ### 📦 依赖更新
 
