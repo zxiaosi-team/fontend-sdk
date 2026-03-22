@@ -1,6 +1,13 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
-## [0.3.4](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.4...v0.3.4) - (2026-03-23)
+## [0.4.0](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.4...v0.4.0) - (2026-03-23)
+
+### 🚜 代码重构
+
+- 重构状态管理，将 InitState 重命名为 UserInfo
+- 重命名 microAppState -> microAppLoading
+
+## [0.3.4](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.3...v0.3.4) - (2026-03-22)
 
 ### 🐛 Bug 修复
 
