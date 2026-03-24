@@ -1,6 +1,12 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
-## [0.4.0](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.4...v0.4.0) - (2026-03-23)
+## [0.5.0](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.4.0...v0.5.0) - (2026-03-25)
+
+### 💥 破坏性变更
+
+- 将@ant-design/pro-layout从dependencies移至peerDependencies
+
+## [0.4.0](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.4...v0.4.0) - (2026-03-22)
 
 ### 🚜 代码重构
 
