@@ -13,11 +13,10 @@ import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import './index.css';
-import CustomActions from '@/components/customActions/index.tsx';
 import CustomCrumb from '@/components/customCrumb/index.tsx';
 import CustomWithAuth from '@/components/customWithAuth/index.tsx';
-import dynamicIcon from '@/components/dynamicIcon/index.tsx';
 import I18nConfig from '@/i18n/index';
+import Layout from '@/layout';
 import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
 
 import App from './App.tsx';
@@ -38,19 +37,11 @@ sdk
   .use(SdkConfigPlugin, {
     locale: 'zh-CN',
     qiankunMode: 'router',
-    proLayoutConfig: {
-      title: '小四先生的栈',
-      layout: 'mix',
-      actionsRender: (props) => <CustomActions {...props} />,
-      menuDataRender: (menuData) => {
-        return menuData.map((_: any) => ({ ..._, icon: dynamicIcon(_?.icon) }));
-      },
-    },
   })
   .use(SdkI18nPlugin, I18nConfig)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
-  .use(SdkUIPlugin, { Home, NotFound, CustomCrumb, CustomWithAuth })
+  .use(SdkUIPlugin, { Layout, Home, NotFound, CustomCrumb, CustomWithAuth })
   .mount('sdk');
 
 /** 渲染主应用 */
