@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
 import { useStore } from 'zustand';
 
+import CustomWithAuth from '@/components/customWithAuth';
 import dynamicIcon from '@/components/dynamicIcon';
 
 import CustomActions from './customActions';
@@ -66,7 +67,9 @@ const Layout: React.FC = () => {
       <Suspense
         fallback={sdk.ui.renderComponent('Loading', { isSuspense: true })}
       >
-        <Outlet />
+        <CustomWithAuth>
+          <Outlet />
+        </CustomWithAuth>
       </Suspense>
     </ProLayout>
   );
