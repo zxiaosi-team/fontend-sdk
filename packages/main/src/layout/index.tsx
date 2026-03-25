@@ -17,7 +17,7 @@ const Layout: React.FC = () => {
 
   const locale = useStore(sdk.store, (state) => state.locale);
 
-  const currentMatch = matches[matches.length - 1]?.handle?.crumb() || {};
+  const currentMatch: any = matches[matches.length - 1]?.handle || {};
   const noLayout = JSON.parse(currentMatch?.routeAttr || '{}')?.noLayout;
 
   /** 菜单点击事件 */

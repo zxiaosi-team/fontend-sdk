@@ -8,7 +8,7 @@ const CustomWithAuth: React.FC<{ children?: React.ReactNode }> = ({
   let isAuth = usePermission();
 
   const matches = sdk.client.matches;
-  const currentMatch = matches[matches.length - 1]?.handle?.crumb() || {};
+  const currentMatch: any = matches[matches.length - 1]?.handle || {};
 
   if (currentMatch && Object.keys(currentMatch).length > 0) {
     const { component, routeAttr, path } = currentMatch;
