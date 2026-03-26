@@ -4,13 +4,16 @@ import type React from 'react';
 import { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import useAntdConfig from './hooks/useAntdConfig';
+
 function App() {
   const { loading, routes } = useInitData();
+  const antdConfig = useAntdConfig();
 
   const Loading: React.FC = (props) => sdk.ui.renderComponent('Loading', props);
 
   return (
-    <ConfigProvider {...sdk.config.antdConfig}>
+    <ConfigProvider {...antdConfig}>
       <Suspense fallback={Loading({ isSuspense: true })}>
         {loading ? (
           Loading({ isInitData: true })

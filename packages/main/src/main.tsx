@@ -41,7 +41,13 @@ sdk
   .use(SdkI18nPlugin, I18nConfig)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
-  .use(SdkUIPlugin, { Layout, Home, NotFound, CustomCrumb, CustomWithAuth })
+  .use(SdkUIPlugin, {
+    Layout,
+    Home,
+    NotFound,
+    CustomCrumb,
+    CustomWithAuth,
+  })
   .mount('sdk');
 
 /** 渲染主应用 */
