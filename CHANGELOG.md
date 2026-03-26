@@ -1,5 +1,11 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
+## [0.5.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.5.1...v0.5.2) - (2026-03-26)
+
+### 📚 文档更新
+
+- 优化SDK文档结构和内容说明
+
 ## [0.5.1](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.5.0...v0.5.1) - (2026-03-25)
 
 ### ◀️ 回滚变更
