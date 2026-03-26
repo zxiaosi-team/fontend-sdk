@@ -1,8 +1,28 @@
-import { sdk } from '@zxiaosi/sdk';
+import { sdk, useInitData } from '@zxiaosi/sdk';
+import { ConfigProvider } from 'antd';
+import type React from 'react';
+import { Suspense } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
-  const Mainapp = sdk.ui.getComponent('Mainapp');
-  return <Mainapp />;
+  const { loading, routes } = useInitData();
+
+  const Loading: React.FC = (props) => sdk.ui.renderComponent('Loading', props);
+
+  return (
+    <ConfigProvider {...sdk.config.antdConfig}>
+      <Suspense fallback={Loading({ isSuspense: true })}>
+        {loading ? (
+          Loading({ isInitData: true })
+        ) : (
+          <RouterProvider
+            router={createBrowserRouter(routes, { basename: '/' })}
+            future={{ v7_startTransition: false }}
+          />
+        )}
+      </Suspense>
+    </ConfigProvider>
+  );
 }
 
 export default App;
