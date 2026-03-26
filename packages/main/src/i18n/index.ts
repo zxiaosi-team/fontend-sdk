@@ -1,6 +1,3 @@
-import enUS from 'antd/es/locale/en_US';
-import zhCN from 'antd/es/locale/zh_CN';
-import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import 'dayjs/locale/zh';
 
@@ -25,17 +22,4 @@ const intlConfig = {
   },
 };
 
-const loadLocale = (locale: string) => {
-  switch (locale) {
-    case 'zh-CN':
-      dayjs.locale('zh');
-      return zhCN;
-    case 'en-US':
-      dayjs.locale('en');
-      return enUS;
-    default:
-      return undefined;
-  }
-};
-
-export default { intlConfig, loadLocale };
+export default { intlConfig };
