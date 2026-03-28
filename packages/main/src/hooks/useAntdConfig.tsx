@@ -43,7 +43,9 @@ const useAntdConfig = () => {
   }, [locale]);
 
   // 合并配置
-  merge(sdk.config.antdConfig, { theme: { algorithm }, locale: localeData });
+  merge(sdk.config, {
+    antdConfig: { theme: { algorithm }, locale: localeData },
+  });
 
   return cloneDeep(sdk.config.antdConfig); // 触发地址引用变化
 };
