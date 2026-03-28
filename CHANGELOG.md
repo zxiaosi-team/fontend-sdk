@@ -1,10 +1,57 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
+## [1.0.0-beta.1](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.5.2...v1.0.0-beta.1) - (2026-03-28)
+
+### ⚙️ 配置变更
+
+- 调整 tsdown 配置文件，保留 css 注入配置
+- 调整 package.json 配置
+
+### 🐛 Bug 修复
+
+- 将主题 CSS 变量提取到 index.css
+- SdkUIPlugin 插件修复 Layout 组件没有多语言导致的报错问题
+
+### 💥 破坏性变更
+
+- SdkUIPlugin 插件中 Login 组件去除 Antd 依赖引入
+- SdkUIPlugin 插件中 Login 组件去除 Antd 依赖引入
+- SdkUIPlugin 插件中 NotFound 组件去除 Antd 依赖引入
+- SdkUIPlugin 插件删除 Mainapp 组件
+
+### 📦 依赖更新
+
+- 删除 antd 依赖
+- 移除 react-intl-universal 依赖
+- 移除 react-intl-universal 依赖
+- 更新依赖 tsdown@0.21.6、@tsdown/css@0.21.6
+
+### 🚀 新功能
+
+- 添加 useInitData hook
+
 ## [0.5.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.5.1...v0.5.2) - (2026-03-26)
+
+### ⚙️ 配置变更
+
+- 更新 package.json 和tsdown 配置
+
+### 💥 破坏性变更
+
+- SdkUIPlugin 插件中 Layout 组件去除 ProLayout 包
 
 ### 📚 文档更新
 
 - 优化SDK文档结构和内容说明
+
+### 📦 依赖更新
+
+- 添加依赖 @tsdown/css@ 0.21.4
+
+### 🚜 代码重构
+
+- 移除 @ant-design/pro-layout 依赖及相关类型
+- 移除 isPermissionUtil 方法 & 优化从 useMatches 中取值方式
 
 ## [0.5.1](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.5.0...v0.5.1) - (2026-03-25)
 
