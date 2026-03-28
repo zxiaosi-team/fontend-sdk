@@ -2,6 +2,7 @@ import { sdk } from '@zxiaosi/sdk';
 import { theme as antdTheme } from 'antd';
 import { merge, cloneDeep } from 'es-toolkit/object';
 import { useMemo } from 'react';
+import intl from 'react-intl-universal';
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
@@ -29,6 +30,13 @@ const useAntdConfig = () => {
 
   // 加载 Antd 语言包
   const localeData = useMemo(() => {
+    if (!locale) return {};
+
+    // 设置 React Intl Universal 语言包
+    const intlConfig = sdk.i18n.intlConfig || {};
+    sdk.i18n.intl = intl;
+    intl.init({ currentLocale: locale, locales: intlConfig });
+
     switch (locale) {
       case 'zh-CN':
         dayjs.locale('zh');
