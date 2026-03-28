@@ -73,7 +73,7 @@ const Home = () => {
         <Card title='Antd 语言包、React Intl 国际化'>
           <Space>
             <DatePicker />
-            {sdk.i18n.intl.get('hello')}
+            {sdk.i18n.intl?.get?.('hello')}
           </Space>
         </Card>
 

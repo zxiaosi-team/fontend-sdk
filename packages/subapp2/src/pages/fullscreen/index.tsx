@@ -12,14 +12,14 @@ const Fullscreen = () => {
       <Breadcrumb
         items={[
           {
-            title: sdk.i18n.intl.get('menu.subapp2'),
+            title: sdk.i18n.intl?.get?.('menu.subapp2'),
             path: '/subapp1',
             onClick: (e) => {
               e?.preventDefault(); // 阻止默认跳转行为
               handleGoBack();
             },
           },
-          { title: sdk.i18n.intl.get('menu.subapp2.fullscreen') },
+          { title: sdk.i18n.intl?.get?.('menu.subapp2.fullscreen') },
         ]}
       />
 
