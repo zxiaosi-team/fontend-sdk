@@ -4,6 +4,7 @@
   "scripts": {
     "build:all": "pnpm -r run build",
     "build:sdk": "pnpm -F sdk run build",
+    "changelog:sdk": "npx git-cliff --workdir sdk -o CHANGELOG.md",
     "clean": "pnpm -r exec rimraf node_modules && npx rimraf node_modules",
     "clean:cache": "pnpm -r exec rimraf node_modules/.vite",
     "dev:main": "pnpm -F main run dev",
