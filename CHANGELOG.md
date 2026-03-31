@@ -98,7 +98,12 @@
 
 - Sdk 应用 完善 README 文档
 
-## [0.3.1](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.3.0...v0.3.1) - (2026-03-15)
+## [0.3.1](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.2.3...v0.3.1) - (2026-03-15)
+
+### 🐛 Bug 修复
+
+- 使用 tsdown 作为打包工具
+- 格式化文件
 
 ### 🚀 新功能
 
@@ -106,9 +111,13 @@
 
 ## [0.2.3](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.2.2...v0.2.3) - (2026-01-22)
 
-### 📦 依赖更新
+### ⚙️ 杂项任务
 
 - Sdk 应用更新依赖 rolldown@1.0.0-rc.1、rolldown-plugin-dts@0.21.5
+
+### 📚 文档更新
+
+- 完善 README 文件
 
 ### 🚀 新功能
 
@@ -116,11 +125,26 @@
 
 ## [0.2.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.2.1...v0.2.2) - (2026-01-11)
 
-### 📦 依赖更新
+### ⚙️ 杂项任务
 
 - Sdk 应用更新依赖 rolldown@1.0.0-beta.59
 
+### 🐛 Bug 修复
+
+- 更新项目中的注释
+
+### 📚 文档更新
+
+- Sdk 应用完善 README 文件
+- Sdk 应用完善 README 文件
+- Sdk 应用完善 README 文件
+
 ## [0.2.1](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.2.0...v0.2.1) - (2026-01-05)
+
+### ⚙️ 杂项任务
+
+- 更新依赖 rolldown@1.0.0-beta.57、rolldown-plugin-dts@0.20.0、es-toolkit@1.43.0
+- Sdk 应用更新依赖 rolldown@1.0.0-beta.58
 
 ### 🐛 Bug 修复
 
@@ -128,15 +152,20 @@
 - 调整 package.json 中 peerDependencies
 - SdkApiPlugin 插件调整 getUserInfoApi、getRoutesApi 接口返回类型
 
-### 📦 依赖更新
+### 📚 文档更新
 
-- Sdk 应用更新依赖 rolldown@1.0.0-beta.58
+- Sdk 应用完善 README 文件
 
 ### 🚀 新功能
 
 - SdkUIPlugin 插件中添加setComponent 方法
 
 ## [0.2.0](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.1.9...v0.2.0) - (2025-12-24)
+
+### ⚙️ 杂项任务
+
+- Sdk 更新 rolldown、rolldown-plugin-dts 依赖
+- 更新依赖 rolldown@1.0.0-beta.55、rolldown-plugin-dts@0.19.1
 
 ### 🐛 Bug 修复
 
@@ -149,15 +178,14 @@
 - SdkUIPlugin 插件添加 Login 组件
 - SdkAppPlugin 插件中添加 initData 方法
 - SdkAppPlugin 插件完善注释
+- 添加 sdk.app.initData 赋值逻辑
 - 调整 sdk 的 log 日志
 - SdkUIPlugin - NotFound 组件添加背景token
+- 格式化文件
+- 更新 oxfmt 配置
 - SdkUIPlugin-Microapp 组件优化
 - SdkUIPlugin-Microapp 组件优化
 - 优化 SdkUIPlugin 插件的注释
-
-### 📦 依赖更新
-
-- Sdk 更新 rolldown、rolldown-plugin-dts 依赖
 
 ### 🚀 新功能
 
@@ -178,20 +206,22 @@
 ### 🚀 新功能
 
 - Sdk 中添加 SdkI18nPlugin 插件
+- 调试 sdk 中主题和多语言功能
 
 ## [0.1.7](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.1.6...v0.1.7) - (2025-12-09)
 
-### 📦 依赖更新
+### ⚙️ 杂项任务
 
 - Sdk 添加 zustand 依赖
 
 ### 🚀 新功能
 
 - Sdk 中添加 SdkStorePlugin 插件
+- 调试 sdk 中状态管理功能
 
 ## [0.1.6](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.1.5...v0.1.6) - (2025-12-08)
 
-### 📦 依赖更新
+### ⚙️ 杂项任务
 
 - Sdk 添加 qiankun 依赖
 - Sdk 更新 rolldown、rolldown-plugin-dts 依赖
@@ -201,10 +231,11 @@
 
 - Sdk 中添加 SdkAppPlugin 插件
 - Sdk 中添加 SdkApiPlugin 插件
+- 调试 sdk 中请求功能
 
 ## [0.1.5](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.1.4...v0.1.5) - (2025-12-04)
 
-### 📦 依赖更新
+### ⚙️ 杂项任务
 
 - Sdk 添加 react-intl-universal 依赖
 
@@ -221,6 +252,16 @@
 
 ## [0.1.3](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.1.2...v0.1.3) - (2025-12-02)
 
+### ⚙️ 杂项任务
+
+- 安装并配置 ts
+- 安装并配置 rolldown、rolldown-plugin-dts
+- Sdk 中添加 rollup-plugin-node-externals 依赖
+- Sdk 中添加 react、react-dom 依赖
+- Sdk 中添加 @ant-design/pro-layout、antd、react-router-dom 依赖
+- Sdk 中添加 es-toolkit 依赖
+- Sdk 中添加 SdkConfigPlugin 插件
+
 ### 🐛 Bug 修复
 
 - 优化 sdk 类中的 mount 和 extend 方法
@@ -228,25 +269,12 @@
 - Sdk 类中 mount 方法添加Proxy代理
 - Sdk 类中添加 use 方法
 
-### 📦 依赖更新
-
-- Sdk 中添加 rollup-plugin-node-externals 依赖
-- Sdk 中添加 react、react-dom 依赖
-- Sdk 中添加 @ant-design/pro-layout、antd、react-router-dom 依赖
-- Sdk 中添加 es-toolkit 依赖
-- Sdk 中添加 SdkConfigPlugin 插件
-
-### 🚀 新功能
-
-- Rolldown 中配置 rollup-plugin-node-externals 排除依赖
-- Sdk 中添加 SdkConfigPlugin 插件
-- Sdk 中新增 README 文件
-
-## [0.1.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v0.1.1...v0.1.2) - (2025-11-30)
-
 ### 🚀 新功能
 
 - 初始化 package.json 文件
 - Sdk 添加核心类
+- Rolldown 中配置 rollup-plugin-node-externals 排除依赖
+- Sdk 中添加 SdkConfigPlugin 插件
+- Sdk 中新增 README 文件
 
 <!-- 由 git-cliff 生成 -->
