@@ -1,5 +1,6 @@
 import { sdk, useCrumb, useIntl } from '@zxiaosi/sdk';
-import { Breadcrumb, type BreadcrumbProps } from 'antd';
+import { Breadcrumb, ConfigProvider, type BreadcrumbProps } from 'antd';
+import { cloneDeep } from 'es-toolkit';
 import { useMemo } from 'react';
 
 /**
@@ -43,7 +44,11 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
     });
   }, [crumb]);
 
-  return <Breadcrumb items={items} {...props} />;
+  return (
+    <ConfigProvider {...cloneDeep(sdk.config.antdConfig)}>
+      <Breadcrumb items={items} {...props} />
+    </ConfigProvider>
+  );
 };
 
 export default CustomCrumb;
