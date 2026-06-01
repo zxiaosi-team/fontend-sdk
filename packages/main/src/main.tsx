@@ -15,11 +15,12 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import CustomCrumb from '@/components/customCrumb/index.tsx';
 import CustomWithAuth from '@/components/customWithAuth/index.tsx';
-import I18nConfig from '@/i18n/index';
+import I18nConfig from '@/i18n/index.ts';
 import Layout from '@/layout';
 import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
 
 import App from './App.tsx';
+import { request } from './request/index.ts';
 
 const Home = lazy(() => import('@/pages/home'));
 const NotFound = lazy(() => import('@/pages/notFound'));
@@ -27,7 +28,8 @@ const NotFound = lazy(() => import('@/pages/notFound'));
 /** 挂载 SDK */
 sdk
   .use(SdkApiPlugin, {
-    config: { baseURL: '/api' },
+    controllers: new Map(), // 请求控制器
+    request: request, // 适配请求类
     getRoutesApi: getRoutesApi,
     getUserInfoApi: getUserInfoApi,
     loginApi: loginApi,
