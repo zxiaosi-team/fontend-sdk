@@ -14,7 +14,7 @@
     "@ant-design/pro-layout": "^7.22.7",
     "@zxiaosi/sdk": "workspace:*",
     "antd": "catalog:",
-    "axios": "catalog:",
+    "axios": "^1.16.1",
     "dayjs": "catalog:",
     "es-toolkit": "catalog:",
     "react": "catalog:",

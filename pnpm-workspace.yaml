@@ -8,21 +8,20 @@ allowBuilds:
 
 catalog:
   antd: ^5.29.3
-  dayjs: ^1.11.20
-  es-toolkit: ^1.45.1
+  dayjs: ^1.11.21
+  es-toolkit: ^1.47.0
   react: ^18.3.1
   react-dom: ^18.3.1
   react-router-dom: ^6.30.2
-  zustand: ^5.0.12
-  axios: ^1.16.1
+  zustand: ^5.0.14
 
   '@types/node': ^24.10.1
   '@types/react': ^18.3.12
   '@types/react-dom': ^18.3.1
-  '@vitejs/plugin-react': ^6.0.1
+  '@vitejs/plugin-react': ^6.0.2
   globals: ^16.5.0
   typescript: ~5.9.3
-  vite: ^8.0.3
+  vite: ^8.0.16
   vite-plugin-externals: ^0.6.2
 
 minimumReleaseAgeExclude:
