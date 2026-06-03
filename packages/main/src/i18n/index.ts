@@ -3,7 +3,7 @@ import 'dayjs/locale/zh';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-const intlConfig = {
+const resources = {
   'zh-CN': {
     main: {
       hello: '你好，世界',
@@ -32,7 +32,7 @@ const i18n = i18next.createInstance();
 
 i18n.use(initReactI18next).init({
   ns: ['main'],
-  resources: intlConfig,
+  resources,
   lng: 'zh-CN',
   interpolation: {
     escapeValue: false, // react already safes from xss
