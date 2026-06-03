@@ -2,10 +2,6 @@ packages:
   - 'packages/*'
   - 'sdk'
 
-allowBuilds:
-  esbuild: set this to true or false
-  react-intl-universal: set this to true or false
-
 catalog:
   antd: ^5.29.3
   dayjs: ^1.11.21
