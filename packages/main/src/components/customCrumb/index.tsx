@@ -15,7 +15,7 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
   /** 页面跳转 */
   const handlePageTo = (url: string, e?: any) => {
     e?.preventDefault(); // 阻止默认跳转行为
-    sdk.client?.navigate(url);
+    sdk.router?.navigate(url);
   };
 
   const items = useMemo(() => {

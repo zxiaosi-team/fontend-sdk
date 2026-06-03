@@ -33,7 +33,7 @@ class Http {
   defaultRequestInterceptor() {
     this.instance.interceptors.request.use(
       function (config: InternalAxiosRequestConfig) {
-        const token = sdk.storage.getToken();
+        const token = sdk.storage.getItem(sdk.storage.themeKey);
 
         // 设置请求唯一标识
         const requestId = generateRequestIdUtil(config);

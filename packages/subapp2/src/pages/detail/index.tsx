@@ -1,5 +1,5 @@
 import { sdk } from '@zxiaosi/sdk';
-import { Alert, Breadcrumb, Button, Card, DatePicker, Space } from 'antd';
+import { Alert, Button, Card, DatePicker, Space } from 'antd';
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
@@ -19,7 +19,7 @@ const Home = () => {
 
   /** 跳转页面 */
   const handlePageTo = (uri: string) => {
-    sdk.client.navigate(uri);
+    sdk.router.navigate(uri);
   };
 
   /** 设置主题 */

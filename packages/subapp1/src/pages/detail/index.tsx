@@ -6,7 +6,7 @@ import CustomCrumb from '@/components/customCrumb';
 const Detail = () => {
   /** 返回上一级 */
   const handleGoBack = () => {
-    sdk.client.navigate('/subapp1');
+    sdk.router.navigate('/subapp1');
   };
 
   return (

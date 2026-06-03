@@ -10,7 +10,8 @@ function App() {
   const { loading, routes } = useInitData();
   const antdConfig = useAntdConfig();
 
-  const Loading: React.FC = (props) => sdk.ui.renderComponent('Loading', props);
+  const Loading: React.FC = (props) =>
+    sdk.components.renderComponent('Loading', props);
 
   return (
     <ConfigProvider {...antdConfig}>

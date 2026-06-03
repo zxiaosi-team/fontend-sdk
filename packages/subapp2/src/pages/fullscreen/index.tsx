@@ -4,7 +4,7 @@ import { Breadcrumb, Button } from 'antd';
 const Fullscreen = () => {
   /** 返回上一级 */
   const handleGoBack = () => {
-    sdk.client.navigate('/subapp2/detail');
+    sdk.router.navigate('/subapp2/detail');
   };
 
   return (

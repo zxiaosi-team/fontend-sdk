@@ -65,7 +65,9 @@ const Layout: React.FC = () => {
       }}
     >
       <Suspense
-        fallback={sdk.ui.renderComponent('Loading', { isSuspense: true })}
+        fallback={sdk.components.renderComponent('Loading', {
+          isSuspense: true,
+        })}
       >
         <CustomWithAuth>
           <Outlet />

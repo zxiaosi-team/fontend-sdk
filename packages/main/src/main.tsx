@@ -1,56 +1,9 @@
-import {
-  sdk,
-  SdkApiPlugin,
-  SdkAppPlugin,
-  SdkClientPlugin,
-  SdkConfigPlugin,
-  SdkI18nPlugin,
-  SdkStoragePlugin,
-  SdkStorePlugin,
-  SdkUIPlugin,
-} from '@zxiaosi/sdk';
-import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import './index.css';
-import CustomCrumb from '@/components/customCrumb/index.tsx';
-import CustomWithAuth from '@/components/customWithAuth/index.tsx';
-import I18nConfig from '@/i18n/index.ts';
-import Layout from '@/layout';
-import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
-
+import './sdk.config.ts';
 import App from './App.tsx';
-import { request } from './request/index.ts';
 
-const Home = lazy(() => import('@/pages/home'));
-const NotFound = lazy(() => import('@/pages/notFound'));
-
-/** 挂载 SDK */
-sdk
-  .use(SdkApiPlugin, {
-    controllers: new Map(), // 请求控制器
-    request: request, // 适配请求类
-    getRoutesApi: getRoutesApi,
-    getUserInfoApi: getUserInfoApi,
-    loginApi: loginApi,
-  })
-  .use(SdkAppPlugin)
-  .use(SdkClientPlugin)
-  .use(SdkConfigPlugin, {
-    locale: 'zh-CN',
-    qiankunMode: 'router',
-  })
-  .use(SdkI18nPlugin, I18nConfig)
-  .use(SdkStoragePlugin)
-  .use(SdkStorePlugin)
-  .use(SdkUIPlugin, {
-    Layout,
-    Home,
-    NotFound,
-    CustomCrumb,
-    CustomWithAuth,
-  })
-  .mount('sdk');
+import './index.css';
 
 /** 渲染主应用 */
 createRoot(document.getElementById('root')!).render(<App />);

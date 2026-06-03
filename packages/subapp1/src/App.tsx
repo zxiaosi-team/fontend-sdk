@@ -12,6 +12,8 @@ import { useShallow } from 'zustand/shallow';
 
 import CustomWithAuth from '@/components/customWithAuth';
 
+import './index.css';
+
 const Home = lazy(() => import('@/pages/home'));
 const Detail = lazy(() => import('@/pages/detail'));
 
@@ -44,7 +46,7 @@ function App() {
 
   return (
     <ConfigProvider {...antdConfig}>
-      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
+      <Suspense fallback={sdk.components.renderComponent('Loading')}>
         <RouterProvider
           router={createBrowserRouter(routes, { basename: '/subapp1' })}
           future={{ v7_startTransition: false }}
