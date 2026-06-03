@@ -1,25 +1,43 @@
 import 'dayjs/locale/en';
 import 'dayjs/locale/zh';
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
 const intlConfig = {
   'zh-CN': {
-    hello: '你好，世界',
-    'menu.home': '首页',
-    'menu.subapp1': '子应用1',
-    'menu.subapp1.detail': '子应用1详情',
-    'menu.subapp2': '子应用2',
-    'menu.subapp2.detail': '子应用2详情',
-    'menu.subapp2.fullscreen': '子应用2全屏',
+    main: {
+      hello: '你好，世界',
+      'menu.home': '首页',
+      'menu.subapp1': '子应用1',
+      'menu.subapp1.detail': '子应用1详情',
+      'menu.subapp2': '子应用2',
+      'menu.subapp2.detail': '子应用2详情',
+      'menu.subapp2.fullscreen': '子应用2全屏',
+    },
   },
   'en-US': {
-    hello: 'Hello, World',
-    'menu.home': 'Home',
-    'menu.subapp1': 'Subapp1',
-    'menu.subapp1.detail': 'Subapp1 detail',
-    'menu.subapp2': 'Subapp2',
-    'menu.subapp2.detail': 'Subapp2 detail',
-    'menu.subapp2.fullscreen': 'Subapp2 fullscreen',
+    main: {
+      hello: 'Hello, World',
+      'menu.home': 'Home',
+      'menu.subapp1': 'Subapp1',
+      'menu.subapp1.detail': 'Subapp1 detail',
+      'menu.subapp2': 'Subapp2',
+      'menu.subapp2.detail': 'Subapp2 detail',
+      'menu.subapp2.fullscreen': 'Subapp2 fullscreen',
+    },
   },
 };
 
-export default { intlConfig };
+const i18n = i18next.createInstance();
+
+i18n.use(initReactI18next).init({
+  ns: ['main'],
+  resources: intlConfig,
+  lng: 'zh-CN',
+  interpolation: {
+    escapeValue: false, // react already safes from xss
+  },
+  debug: true,
+});
+
+export default i18n;

@@ -17,9 +17,10 @@
     "axios": "^1.16.1",
     "dayjs": "catalog:",
     "es-toolkit": "catalog:",
+    "i18next": "^26.3.0",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-intl-universal": "^2.13.4",
+    "react-i18next": "17.0.8",
     "react-router-dom": "catalog:",
     "zustand": "catalog:"
   },

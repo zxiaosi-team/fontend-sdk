@@ -1,9 +1,10 @@
 import { sdk } from '@zxiaosi/sdk';
 import { Alert, Button, Card, DatePicker, Space } from 'antd';
+
+import './index.css';
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
-import './index.css';
 import CustomCrumb from '@/components/customCrumb';
 
 /** 首页 */
@@ -70,10 +71,10 @@ const Home = () => {
           </Space>
         </Card>
 
-        <Card title='Antd 语言包、React Intl 国际化'>
+        <Card title='Antd 语言包、i18next 国际化'>
           <Space>
             <DatePicker />
-            {sdk.i18n.intl?.get?.('hello')}
+            {sdk.i18n.t('hello')}
           </Space>
         </Card>
 

@@ -12,6 +12,8 @@ interface ImportMeta {
 }
 
 import '@zxiaosi/sdk';
+import { type i18n } from 'i18next';
+
 import { type ApiRequestOption } from '@/request';
 
 declare module '@zxiaosi/sdk' {
@@ -23,4 +25,6 @@ declare module '@zxiaosi/sdk' {
     /** 请求配置 */
     request(url: string, options?: ApiRequestOption): Promise<any>;
   }
+
+  interface I18nOptions extends i18n {}
 }

@@ -43,7 +43,7 @@ const Layout: React.FC = () => {
       layout='mix'
       locale={locale as any}
       formatMessage={({ id, defaultMessage }: any) =>
-        sdk.i18n.intl?.get?.(id).d(defaultMessage)
+        sdk.i18n.t(id, { defaultValue: defaultMessage })
       }
       location={location}
       menuItemRender={(item, dom) => (

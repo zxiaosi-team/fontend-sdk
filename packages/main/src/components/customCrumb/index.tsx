@@ -1,4 +1,4 @@
-import { sdk, useCrumb, useIntl } from '@zxiaosi/sdk';
+import { sdk, useCrumb } from '@zxiaosi/sdk';
 import { Breadcrumb, ConfigProvider, type BreadcrumbProps } from 'antd';
 import { cloneDeep } from 'es-toolkit';
 import { useMemo } from 'react';
@@ -10,7 +10,6 @@ import { useMemo } from 'react';
  */
 const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
   const crumb = useCrumb();
-  const intl = useIntl();
 
   /** 页面跳转 */
   const handlePageTo = (url: string, e?: any) => {
@@ -31,7 +30,7 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
         path = children[0].path;
       }
 
-      const text = intl.formatMessage({ id: locale }) || name;
+      const text = sdk.i18n.t(locale) || name;
       if (index === crumb.length - 1) {
         return { title: text };
       } else {

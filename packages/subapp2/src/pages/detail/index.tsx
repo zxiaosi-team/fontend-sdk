@@ -72,10 +72,10 @@ const Home = () => {
           </Space>
         </Card>
 
-        <Card title='Antd 语言包、React Intl 国际化'>
+        <Card title='Antd 语言包、i18next 国际化'>
           <Space>
             <DatePicker />
-            {sdk.i18n.intl?.get?.('hello')}
+            {sdk.i18n.t('hello')}
           </Space>
         </Card>
 

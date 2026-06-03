@@ -95,15 +95,18 @@ importers:
       es-toolkit:
         specifier: 'catalog:'
         version: 1.47.0
+      i18next:
+        specifier: ^26.3.0
+        version: 26.3.0(typescript@5.9.3)
       react:
         specifier: 'catalog:'
         version: 18.3.1
       react-dom:
         specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
-      react-intl-universal:
-        specifier: ^2.13.4
-        version: 2.13.4(react@18.3.1)
+      react-i18next:
+        specifier: 17.0.8
+        version: 17.0.8(i18next@26.3.0(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-router-dom:
         specifier: 'catalog:'
         version: 6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -437,6 +440,10 @@ packages:
     resolution: {integrity: sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/runtime@7.29.7':
+    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/template@7.27.2':
     resolution: {integrity: sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw==}
     engines: {node: '>=6.9.0'}
@@ -477,14 +484,6 @@ packages:
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
-
-  '@formatjs/intl-unified-numberformat@3.3.7':
-    resolution: {integrity: sha512-KnWgLRHzCAgT9eyt3OS34RHoyD7dPDYhRcuKn+/6Kv2knDF8Im43J6vlSW6Hm1w63fNq3ZIT1cFk7RuVO3Psag==}
-    deprecated: We have renamed the package to @formatjs/intl-numberformat
-
-  '@formatjs/intl-utils@2.3.0':
-    resolution: {integrity: sha512-KWk80UPIzPmUg+P0rKh6TqspRw0G6eux1PuJr+zz47ftMaZ9QDwbGzHZbtzWkl5hgayM/qrKRutllRC7D/vVXQ==}
-    deprecated: the package is rather renamed to @formatjs/ecma-abstract with some changes in functionality (primarily selectUnit is removed and we don't plan to make any further changes to this package
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -1671,6 +1670,9 @@ packages:
   hookable@6.1.1:
     resolution: {integrity: sha512-U9LYDy1CwhMCnprUfeAZWZGByVbhd54hwepegYTK7Pi5NvqEj63ifz5z+xukznehT7i6NIZRu89Ay1AZmRsLEQ==}
 
+  html-parse-stringify@3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+
   htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
 
@@ -1687,25 +1689,20 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  i18next@26.3.0:
+    resolution: {integrity: sha512-gHSgGpUXVmuqE2El1W61DmxeyeTlFfZgdJRWMo9jScAn5pu7TuTuiccb1zh3E2J9hEBVGJ23+96x0ieBhfuIHA==}
+    peerDependencies:
+      typescript: ^5 || ^6
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   import-html-entry@1.17.0:
     resolution: {integrity: sha512-2SDsRlGlE8bqdnGqsOyiDPEWlzJR0jNW4LWopnZl5QE1Yd0nJ7fykWo2GaKUF7Jq7pR0g3dElhuJHyamTt1gPQ==}
 
   import-without-cache@0.4.0:
     resolution: {integrity: sha512-NkJQA7oZ4YHQhd2+H3BoRFKF3d/XNsiKpHZCQEMH9pDX27hQQLsTyOocyRgaIVtf8gHX3Nt3LPkR4e5EdtPAGQ==}
     engines: {node: ^22.18.0 || >=24.0.0}
-
-  intl-format-cache@4.3.1:
-    resolution: {integrity: sha512-OEUYNA7D06agqPOYhbTkl0T8HA3QKSuwWh1HiClEnpd9vw7N+3XsQt5iZ0GUEchp5CW1fQk/tary+NsbF3yQ1Q==}
-
-  intl-messageformat-parser@3.6.4:
-    resolution: {integrity: sha512-RgPGwue0mJtoX2Ax8EmMzJzttxjnva7gx0Q7mKJ4oALrTZvtmCeAw5Msz2PcjW4dtCh/h7vN/8GJCxZO1uv+OA==}
-    deprecated: We've written a new parser that's 6x faster and is backwards compatible. Please use @formatjs/icu-messageformat-parser
-
-  intl-messageformat@7.8.4:
-    resolution: {integrity: sha512-yS0cLESCKCYjseCOGXuV4pxJm/buTfyCJ1nzQjryHmSehlptbZbn9fnlk1I9peLopZGGbjj46yHHiTAEZ1qOTA==}
-
-  invariant@2.2.4:
-    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
 
   is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
@@ -1850,9 +1847,6 @@ packages:
 
   lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-
-  lodash.merge@4.6.2:
-    resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -2284,10 +2278,21 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-intl-universal@2.13.4:
-    resolution: {integrity: sha512-38dBr1w9GjsIsSJheVGS2svlHiCd5H2RMR4Vz9rVbTM/35S717uhRuU1P+Tsk68rVkcMmGwtjHMu/3dfyRlg3Q==}
+  react-i18next@17.0.8:
+    resolution: {integrity: sha512-0ooKbGLU8JXhe1zwpQUWIeXSgLPOfwJmgheWRIUpcoA0CpyabpGhayjdG+/eA5esC1AQ8h2jWpXjJfzQzeDOCw==}
     peerDependencies:
-      react: '*'
+      i18next: '>= 26.2.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+      typescript: ^5 || ^6
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+      typescript:
+        optional: true
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
@@ -2618,6 +2623,10 @@ packages:
       yaml:
         optional: true
 
+  void-elements@3.1.0:
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
+    engines: {node: '>=0.10.0'}
+
   warning@4.0.3:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
 
@@ -2884,6 +2893,8 @@ snapshots:
 
   '@babel/runtime@7.28.4': {}
 
+  '@babel/runtime@7.29.7': {}
+
   '@babel/template@7.27.2':
     dependencies:
       '@babel/code-frame': 7.27.1
@@ -2936,12 +2947,6 @@ snapshots:
 
   '@esbuild/linux-loong64@0.14.54':
     optional: true
-
-  '@formatjs/intl-unified-numberformat@3.3.7':
-    dependencies:
-      '@formatjs/intl-utils': 2.3.0
-
-  '@formatjs/intl-utils@2.3.0': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -3895,6 +3900,10 @@ snapshots:
 
   hookable@6.1.1: {}
 
+  html-parse-stringify@3.0.1:
+    dependencies:
+      void-elements: 3.1.0
+
   htmlparser2@8.0.2:
     dependencies:
       domelementtype: 2.3.0
@@ -3913,26 +3922,15 @@ snapshots:
 
   husky@9.1.7: {}
 
+  i18next@26.3.0(typescript@5.9.3):
+    optionalDependencies:
+      typescript: 5.9.3
+
   import-html-entry@1.17.0:
     dependencies:
       '@babel/runtime': 7.28.4
 
   import-without-cache@0.4.0: {}
-
-  intl-format-cache@4.3.1: {}
-
-  intl-messageformat-parser@3.6.4:
-    dependencies:
-      '@formatjs/intl-unified-numberformat': 3.3.7
-
-  intl-messageformat@7.8.4:
-    dependencies:
-      intl-format-cache: 4.3.1
-      intl-messageformat-parser: 3.6.4
-
-  invariant@2.2.4:
-    dependencies:
-      loose-envify: 1.4.0
 
   is-binary-path@2.1.0:
     dependencies:
@@ -4043,8 +4041,6 @@ snapshots:
       wrap-ansi: 10.0.0
 
   lodash-es@4.17.21: {}
-
-  lodash.merge@4.6.2: {}
 
   lodash@4.17.21: {}
 
@@ -4554,13 +4550,16 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-intl-universal@2.13.4(react@18.3.1):
+  react-i18next@17.0.8(i18next@26.3.0(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
     dependencies:
-      escape-html: 1.0.3
-      intl-messageformat: 7.8.4
-      invariant: 2.2.4
-      lodash.merge: 4.6.2
+      '@babel/runtime': 7.29.7
+      html-parse-stringify: 3.0.1
+      i18next: 26.3.0(typescript@5.9.3)
       react: 18.3.1
+      use-sync-external-store: 1.6.0(react@18.3.1)
+    optionalDependencies:
+      react-dom: 18.3.1(react@18.3.1)
+      typescript: 5.9.3
 
   react-is@18.3.1: {}
 
@@ -4857,6 +4856,8 @@ snapshots:
       '@types/node': 24.10.1
       fsevents: 2.3.3
       yaml: 2.9.0
+
+  void-elements@3.1.0: {}
 
   warning@4.0.3:
     dependencies:
