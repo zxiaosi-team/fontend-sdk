@@ -36,6 +36,26 @@ export default ({ mode }: ConfigEnv) => {
           // 配合 main.tsx 中 container.setAttribute() 使用
           prefixer({
             prefix: `[data-qiankun-${name}]`, // 添加作用域
+            transform(prefix, selector, prefixedSelector, filePath, rule) {
+              if (selector.match(/^(html|body)/)) {
+                return selector.replace(/^([^\s]*)/, `$1 ${prefix}`);
+              }
+
+              // 过滤 node_modules 和 dist 目录下的样式
+              if (filePath.match(/node_modules/) || filePath.match(/dist/)) {
+                return selector; // Do not prefix styles imported from node_modules
+              }
+
+              const annotation = rule.prev();
+              if (
+                annotation?.type === 'comment' &&
+                annotation.text.trim() === 'no-prefix'
+              ) {
+                return selector; // Do not prefix style rules that are preceded by: /* no-prefix */
+              }
+
+              return prefixedSelector;
+            },
           }),
         ],
       },
