@@ -9,15 +9,7 @@ import axios, {
 } from 'axios';
 
 import { cancelRequestUtil, generateRequestIdUtil } from '@/util/request';
-
-export interface ApiRequestOption extends AxiosRequestConfig {
-  /** 请求唯一key(默认自动生成) */
-  requestId?: string;
-  /** 是否需要原始数据 */
-  isOriginalData?: boolean;
-  /** 是否显示错误信息 */
-  isShowFailMsg?: boolean;
-}
+import type { ApiRequestOption } from '@/vite-env';
 
 /** 请求类 */
 class Http {

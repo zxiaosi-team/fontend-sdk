@@ -1,7 +1,7 @@
 import { sdk } from '@zxiaosi/sdk';
 import { type AxiosResponse } from 'axios';
 
-import type { ApiRequestOption } from '@/request';
+import type { ApiRequestOption } from '@/vite-env';
 
 /**
  * 生成请求id
