@@ -1,13 +1,15 @@
-import { sdk, useInitData } from '@zxiaosi/sdk';
+import { sdk } from '@zxiaosi/sdk';
 import { ConfigProvider } from 'antd';
 import type React from 'react';
 import { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import useAntdConfig from './hooks/useAntdConfig';
+import useAntdConfig from '@/hooks/useAntdConfig';
+import { useInitData } from '@/hooks/useInitData';
 
 function App() {
   const { loading, routes } = useInitData();
+
   const antdConfig = useAntdConfig();
 
   const Loading: React.FC = (props) =>

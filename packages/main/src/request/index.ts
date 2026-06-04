@@ -8,7 +8,7 @@ import axios, {
   type InternalAxiosRequestConfig,
 } from 'axios';
 
-import { cancelRequestUtil, generateRequestIdUtil } from '@/util/request';
+import { cancelRequestUtil, generateRequestIdUtil } from '@/utils/request';
 import type { ApiRequestOption } from '@/vite-env';
 
 /** 请求类 */

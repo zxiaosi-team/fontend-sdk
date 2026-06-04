@@ -1,3 +1,4 @@
+import { sdk } from '@zxiaosi/sdk';
 import { merge } from 'es-toolkit/object';
 import { useEffect, useState } from 'react';
 import {
@@ -10,8 +11,9 @@ import {
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
-import { sdk } from '@/core';
-import { handleRoutesUtil, getFirstPagePathUtil } from '@/utils';
+import NotFound from '@/pages/notFound';
+import { getRoutesApi, getUserInfoApi } from '@/service';
+import { handleRoutesUtil, getFirstPagePathUtil } from '@/utils/menus';
 
 /** 记录路由信息 */
 const WithRouter: React.FC<any> = ({ children }) => {
@@ -30,12 +32,11 @@ const useInitData = () => {
 
   const Layout = sdk.components.renderComponent('Layout'); // 布局组件
   const Login = sdk.components.renderComponent('Login'); // 登录组件
-  const NotFound = sdk.components.renderComponent('NotFound'); // 404组件
 
   /** 默认路由(最外层路由都要被 WithRouter 包裹, 可以实现不刷新页面跳转) */
   const defaultRoutes: RouteObject[] = [
     { path: loginPath, element: Login },
-    { path: '*', element: NotFound },
+    { path: '*', element: <NotFound /> },
   ].map((_) => ({
     ..._,
     element: <WithRouter sdk={sdk}>{_.element}</WithRouter>,
@@ -59,7 +60,7 @@ const useInitData = () => {
     try {
       setLoading(() => true);
       const [{ data: userData = {} }, { data: routerData = [] }] =
-        await Promise.all([sdk.api.getUserInfoApi(), sdk.api.getRoutesApi()]);
+        await Promise.all([getUserInfoApi(), getRoutesApi()]);
       setLoading(() => false);
 
       // 设置用户信息
@@ -70,10 +71,7 @@ const useInitData = () => {
       setThemeLocale(theme, locale);
 
       // 处理路由数据
-      const { microApps = [], menuData = [] } = handleRoutesUtil(
-        routerData,
-        sdk,
-      );
+      const { microApps = [], menuData = [] } = handleRoutesUtil(routerData);
 
       // 获取首页路径
       const firstPath = getFirstPagePathUtil(menuData);
@@ -109,6 +107,7 @@ const useInitData = () => {
 
   useEffect(() => {
     sdk.app.allRoutes = defaultRoutes;
+    sdk.app.initData = initData;
 
     const pathName = window.location.pathname;
     const noNeedAuth = [loginPath]?.includes(pathName);

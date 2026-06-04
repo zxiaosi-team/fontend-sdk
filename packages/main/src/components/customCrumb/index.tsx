@@ -32,7 +32,6 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
     return crumbs.map((item: any, index: number) => {
       let path = item.path;
       const { name, locale } = item;
-      console.log('itemitem', item);
 
       // 首页的子页面，默认选中第一个子页面
       if (path === '/' && item.children && item.children.length > 0) {

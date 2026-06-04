@@ -37,7 +37,7 @@ i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false, // react already safes from xss
   },
-  debug: true,
+  // debug: true,
 });
 
 export default i18n;
