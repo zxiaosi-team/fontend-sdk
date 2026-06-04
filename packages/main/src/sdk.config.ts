@@ -16,8 +16,6 @@ import { getRoutesApi, getUserInfoApi, loginApi } from '@/service';
 
 import { request } from './request';
 
-import '@zxiaosi/sdk/style.css';
-
 const Home = lazy(() => import('@/pages/home'));
 const Layout = lazy(() => import('@/layout'));
 
@@ -36,7 +34,7 @@ sdk
   .use(SDKAppPlugin)
   .use(SDKComponentsPlugin, {
     Home,
-    Layout,
+    // Layout,
     CustomCrumb,
     CustomWithAuth,
   })

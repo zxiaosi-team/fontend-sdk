@@ -8,9 +8,9 @@ import useAntdConfig from '@/hooks/useAntdConfig';
 import { useInitData } from '@/hooks/useInitData';
 
 function App() {
-  const { loading, routes } = useInitData();
-
   const antdConfig = useAntdConfig();
+
+  const { loading, routes } = useInitData();
 
   const Loading: React.FC = (props) =>
     sdk.components.renderComponent('Loading', props);
