@@ -19,7 +19,6 @@ import { request } from './request';
 import '@zxiaosi/sdk/style.css';
 
 const Home = lazy(() => import('@/pages/home'));
-const NotFound = lazy(() => import('@/pages/notFound'));
 const Layout = lazy(() => import('@/layout'));
 
 import CustomCrumb from '@/components/customCrumb/index.tsx';
@@ -37,7 +36,6 @@ sdk
   .use(SDKAppPlugin)
   .use(SDKComponentsPlugin, {
     Home,
-    NotFound,
     Layout,
     CustomCrumb,
     CustomWithAuth,

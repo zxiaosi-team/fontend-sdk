@@ -1,7 +1,9 @@
-import { sdk, useCrumb } from '@zxiaosi/sdk';
+import { sdk } from '@zxiaosi/sdk';
 import { Breadcrumb, ConfigProvider, type BreadcrumbProps } from 'antd';
 import { cloneDeep } from 'es-toolkit';
 import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useStore } from 'zustand';
 
 /**
  * Antd 面包屑
@@ -9,7 +11,8 @@ import { useMemo } from 'react';
  * - 更多参考：https://ant.design/components/breadcrumb-cn
  */
 const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
-  const crumb = useCrumb();
+  const location = useLocation();
+  const locale = useStore(sdk.store, (state) => state.locale);
 
   /** 页面跳转 */
   const handlePageTo = (url: string, e?: any) => {
@@ -18,11 +21,18 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
   };
 
   const items = useMemo(() => {
-    if (!crumb || crumb.length === 0) return [];
+    let crumbs = sdk.router.matches
+      // @ts-ignore
+      .filter((match) => Boolean(match.handle))
+      // @ts-ignore
+      .map((match) => match.handle);
 
-    return crumb.map((item, index: number) => {
+    if (!crumbs || crumbs.length === 0) return [];
+
+    return crumbs.map((item: any, index: number) => {
       let path = item.path;
       const { name, locale } = item;
+      console.log('itemitem', item);
 
       // 首页的子页面，默认选中第一个子页面
       if (path === '/' && item.children && item.children.length > 0) {
@@ -31,7 +41,7 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
       }
 
       const text = sdk.i18n.t(locale) || name;
-      if (index === crumb.length - 1) {
+      if (index === crumbs.length - 1) {
         return { title: text };
       } else {
         return {
@@ -41,7 +51,7 @@ const CustomCrumb: React.FC = (props: BreadcrumbProps) => {
         };
       }
     });
-  }, [crumb]);
+  }, [location.pathname, locale]);
 
   return (
     <ConfigProvider {...cloneDeep(sdk.config.antdConfig)}>

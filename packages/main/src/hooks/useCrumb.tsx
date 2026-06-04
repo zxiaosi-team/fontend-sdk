@@ -1,7 +1,6 @@
+import { sdk } from '@zxiaosi/sdk';
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-
-import { sdk } from '@/core';
 
 /**
  * 获取面包屑
@@ -10,7 +9,7 @@ import { sdk } from '@/core';
 const useCrumb = () => {
   const location = useLocation();
 
-  let matches = useMemo(() => sdk.router.matches, [location]);
+  let matches = useMemo(() => sdk.router.matches, [location.pathname]);
 
   let crumbs = matches
     // @ts-ignore
