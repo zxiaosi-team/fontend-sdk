@@ -27,7 +27,7 @@ jobs:
       - name: Setup nodejs and build package
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           # 设置要发布到哪个npm镜像仓库，这里指向npmjs
           registry-url: https://registry.npmjs.org/
           cache: 'pnpm'
