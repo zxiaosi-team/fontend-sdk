@@ -2,6 +2,9 @@ packages:
   - 'packages/*'
   - 'sdk'
 
+allowBuilds:
+  esbuild: true
+
 catalog:
   antd: ^5.29.3
   dayjs: ^1.11.21
