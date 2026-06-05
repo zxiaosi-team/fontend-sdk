@@ -21,6 +21,13 @@ interface ApiRequestOption extends AxiosRequestConfig {
   isShowFailMsg?: boolean;
 }
 
+interface TestStoreProps {
+  /** 测试 */
+  test: string;
+  /** 设置测试 */
+  setTest(test: string): void;
+}
+
 declare module '@zxiaosi/sdk' {
   interface ApiOptions {
     /** @deprecated `use request instead` */
@@ -32,6 +39,8 @@ declare module '@zxiaosi/sdk' {
   }
 
   interface I18nOptions extends i18n {}
+
+  interface StoreProps extends TestStoreProps {}
 }
 
 /** ---------------- 共享类型 End ------------------ */
