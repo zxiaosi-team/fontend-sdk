@@ -35,8 +35,6 @@ interface TestStoreProps {
 
 declare module '@zxiaosi/sdk' {
   interface ApiOptions {
-    /** @deprecated `use request instead` */
-    fetch: (url: string, options: RequestInit) => Promise<any>;
     /** 请求控制器 */
     controllers: Map<string, AbortController>;
     /** 请求配置 */
