@@ -17,17 +17,17 @@ jobs:
       # Step1: 检出源码
       - name: Checkout
         # 使用的第三方action名称，其实是仓库地址的缩写，省略了github.com/前缀，完整是https://github.com/actions/checkout/tree/v4/
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Step2: 安装pnpm环境
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       # Step3: 安装Nodejs环境并打包
       - name: Setup nodejs and build package
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
           # 设置要发布到哪个npm镜像仓库，这里指向npmjs
           registry-url: https://registry.npmjs.org/
           cache: 'pnpm'
@@ -60,7 +60,7 @@ jobs:
 
       # Step8: 发布release
       - name: Release
-        uses: softprops/action-gh-release@v2 # https://github.com/softprops/action-gh-release
+        uses: softprops/action-gh-release@v3 # https://github.com/softprops/action-gh-release
         with:
           # 这里环境变量写配置在仓库secret的GitHub Personal access token的名字
           token: ${{ secrets.GHP_TOKEN }}
