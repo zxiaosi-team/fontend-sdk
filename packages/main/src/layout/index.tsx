@@ -1,4 +1,4 @@
-import ProLayout from '@ant-design/pro-layout';
+import { ProLayout } from '@ant-design/pro-components';
 import { sdk } from '@zxiaosi/sdk';
 import { Suspense } from 'react';
 import { Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
@@ -22,6 +22,7 @@ const Layout: React.FC = () => {
 
   /** 菜单点击事件 */
   const handleMenuClick = (item: any) => {
+    console.log(item);
     navigate(item.path);
   };
 
@@ -47,7 +48,9 @@ const Layout: React.FC = () => {
       }
       location={location}
       menuItemRender={(item, dom) => (
-        <div onClick={() => handleMenuClick(item)}>{dom}</div>
+        <div style={{ width: '100%' }} onClick={() => handleMenuClick(item)}>
+          {dom}
+        </div>
       )}
       onMenuHeaderClick={handleMenuHeaderClick}
       onPageChange={handlePageChange}
