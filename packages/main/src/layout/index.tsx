@@ -60,7 +60,7 @@ const Layout: React.FC = () => {
         menuRender: false,
       })}
       menu={{
-        request: async () => sdk.app.menuData || [],
+        request: async () => sdk.app.menus || [],
       }}
       actionsRender={(props) => <CustomActions {...props} />}
       menuDataRender={(menuData) => {

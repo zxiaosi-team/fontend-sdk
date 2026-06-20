@@ -10,6 +10,7 @@ import {
   SDKStorePlugin,
   type StoreSlice,
 } from '@zxiaosi/sdk';
+import { loadMicroApp } from 'qiankun';
 import { lazy } from 'react';
 
 import CustomCrumb from '@/components/customCrumb/index.tsx';
@@ -41,7 +42,9 @@ sdk
     getUserInfoApi,
     loginApi,
   })
-  .use(SDKAppPlugin)
+  .use(SDKAppPlugin, {
+    loadMicroApp,
+  })
   .use(SDKComponentsPlugin, {
     Home,
     // Layout,

@@ -36,6 +36,9 @@ catalogs:
     i18next:
       specifier: ^26.3.0
       version: 26.3.0
+    qiankun:
+      specifier: ^2.10.16
+      version: 2.10.16
     react:
       specifier: ^19.2.7
       version: 19.2.7
@@ -104,6 +107,9 @@ importers:
       i18next:
         specifier: 'catalog:'
         version: 26.3.0(typescript@5.9.3)
+      qiankun:
+        specifier: 'catalog:'
+        version: 2.10.16
       react:
         specifier: 'catalog:'
         version: 19.2.7
@@ -278,9 +284,6 @@ importers:
 
   sdk:
     dependencies:
-      qiankun:
-        specifier: ^2.10.16
-        version: 2.10.16
       react:
         specifier: ^18.3.1 || >=19.0.0
         version: 18.3.1
@@ -432,10 +435,6 @@ packages:
     resolution: {integrity: sha512-aLxAE+imI9bCcyaPrUDjBv3uSkWieifjLe0kuFOZF0zli0L6GCsTmsePnTr55adbIAgYz2zhN1vnFimCBUYcRQ==}
     engines: {node: ^22.18.0 || >=24.11.0}
     hasBin: true
-
-  '@babel/runtime@7.28.4':
-    resolution: {integrity: sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==}
-    engines: {node: '>=6.9.0'}
 
   '@babel/runtime@7.29.7':
     resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
@@ -2189,8 +2188,8 @@ packages:
   lodash-es@4.18.1:
     resolution: {integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==}
 
-  lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-update@6.1.0:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
@@ -3028,8 +3027,6 @@ snapshots:
   '@babel/parser@8.0.0':
     dependencies:
       '@babel/types': 8.0.0
-
-  '@babel/runtime@7.28.4': {}
 
   '@babel/runtime@7.29.7': {}
 
@@ -4479,7 +4476,7 @@ snapshots:
 
   import-html-entry@1.17.0:
     dependencies:
-      '@babel/runtime': 7.28.4
+      '@babel/runtime': 7.29.7
 
   import-without-cache@0.4.0: {}
 
@@ -4605,7 +4602,7 @@ snapshots:
 
   lodash-es@4.18.1: {}
 
-  lodash@4.17.21: {}
+  lodash@4.18.1: {}
 
   log-update@6.1.0:
     dependencies:
@@ -4800,9 +4797,9 @@ snapshots:
 
   qiankun@2.10.16:
     dependencies:
-      '@babel/runtime': 7.28.4
+      '@babel/runtime': 7.29.7
       import-html-entry: 1.17.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       single-spa: 5.9.5
 
   quansync@1.0.0: {}

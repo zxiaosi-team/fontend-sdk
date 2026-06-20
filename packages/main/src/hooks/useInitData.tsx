@@ -87,18 +87,13 @@ const useInitData = () => {
           path: '/',
           element: <WithRouter>{Layout}</WithRouter>,
           children: menuData,
-          errorElement: NotFound,
+          errorElement: <NotFound />,
         },
       ];
 
       setRoutes(allRoutes); // 重新赋值，触发路由更新
 
-      sdk.app = {
-        ...sdk.app,
-        allRoutes,
-        microApps,
-        menuData,
-      };
+      sdk.app = { ...sdk.app, microApps, menus: menuData };
     } catch (error) {
       console.error(error);
       setLoading(() => false);
@@ -106,13 +101,12 @@ const useInitData = () => {
   };
 
   useEffect(() => {
-    sdk.app.allRoutes = defaultRoutes;
     sdk.app.initData = initData;
 
     const pathName = window.location.pathname;
     const noNeedAuth = [loginPath]?.includes(pathName);
 
-    // 如果时登录页面
+    // 如果是登录页面
     if (noNeedAuth) setThemeLocale();
     else initData();
   }, []);

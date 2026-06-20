@@ -1,6 +1,5 @@
 import { sdk } from '@zxiaosi/sdk';
 import { ConfigProvider } from 'antd';
-import type React from 'react';
 import { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
@@ -12,8 +11,7 @@ function App() {
 
   const { loading, routes } = useInitData();
 
-  const Loading: React.FC = (props) =>
-    sdk.components.renderComponent('Loading', props);
+  const Loading = (props) => sdk.components.renderComponent('Loading', props);
 
   return (
     <ConfigProvider {...antdConfig}>
