@@ -1,11 +1,46 @@
 <!-- 先配置 `cliff.toml`, 运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
-## [1.0.0-beta.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v1.0.0-beta.1...v1.0.0-beta.2) - (2026-06-05)
+## [1.0.0-beta.3](https://github.com/zxiaosi-team/fontend-sdk/compare/v1.0.0-beta.2...v1.0.0-beta.3) - (2026-06-21)
+
+### ◀️ 回滚变更
+
+- 回滚 sdk 变更
+
+### 🎨 代码样式
+
+- 调整按钮样式并添加鼠标事件
+
+### 🐛 Bug 修复
+
+- SDKStoragePlugin 插件 修正名称拼写错误
+- 移除不再使用的 useIntl 钩子和相关配置
+- 调整 getDefaultLocale、getDefaultLocale 方法到 SDKAppPlugin 中
+- 移除 qiankunMode 配置项
+- 删除 usePermission、useUserInfo、useCrumb 等 hook
+- 删除 useInitData hook 并重构相关组件
+- 重构布局组件，移除样式文件并使用内联样式
+- 更新 pageToLogin 方法以清除用户信息
+- 移除 ApiOptions 中的 fetch 方法
+- 移除 qiankun 依赖并更新相关配置
+- 更新插件类型定义以支持泛型
+- 修复用户信息状态管理和类型定义
+- 添加 Location 类型到路由插件导入
+
+### 📦 依赖更新
+
+- 更新依赖 @tsdown/css@0.22.1、tsdown@0.22.1
+- 移除依赖 axios
+- 更新依赖 @tsdown/css@0.22.3、tsdown@0.22.3、es-toolkit@1.47.1
+
+### 🚀 新功能
+
+- SDKStorePlugin 插件 修改配置可传入
+
+## [1.0.0-beta.2](https://github.com/zxiaosi-team/fontend-sdk/compare/v1.0.0-beta.1...v1.0.0-beta.2) - (2026-06-02)
 
 ### ◀️ 回滚变更
 
 - Move @ant-design/pro-layout to dependencies
-- 回滚 sdk 变更
 
 ### ⚙️ 杂项任务
 
@@ -20,10 +55,6 @@
 - 更新 package.json 和tsdown 配置
 - 调整 tsdown 配置文件，保留 css 注入配置
 - 调整 package.json 配置
-
-### 🎨 代码样式
-
-- 调整按钮样式并添加鼠标事件
 
 ### 🐛 Bug 修复
 
@@ -44,15 +75,6 @@
 - 将主题 CSS 变量提取到 index.css
 - SdkUIPlugin 插件修复 Layout 组件没有多语言导致的报错问题
 - 修复 useCrumb hook 中取值错误问题
-- SDKStoragePlugin 插件 修正名称拼写错误
-- 移除不再使用的 useIntl 钩子和相关配置
-- 调整 getDefaultLocale、getDefaultLocale 方法到 SDKAppPlugin 中
-- 移除 qiankunMode 配置项
-- 删除 usePermission、useUserInfo、useCrumb 等 hook
-- 删除 useInitData hook 并重构相关组件
-- 重构布局组件，移除样式文件并使用内联样式
-- 更新 pageToLogin 方法以清除用户信息
-- 移除 ApiOptions 中的 fetch 方法
 
 ### 💥 破坏性变更
 
@@ -84,7 +106,6 @@
 - 移除 react-intl-universal 依赖
 - 更新依赖 tsdown@0.21.6、@tsdown/css@0.21.6
 - 更新依赖 @tsdown/css@0.22.0、es-toolkit@1.47.0、tsdown@0.22.0
-- 更新依赖 @tsdown/css@0.22.1、tsdown@0.22.1
 
 ### 🚀 新功能
 
@@ -98,7 +119,6 @@
 - 添加 useCrumb hook
 - 添加 usePermission hook
 - 添加 useInitData hook
-- SDKStorePlugin 插件 修改配置可传入
 
 ### 🚜 代码重构
 
